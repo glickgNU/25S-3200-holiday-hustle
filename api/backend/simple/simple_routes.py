@@ -29,14 +29,21 @@ def get_playlist_data():
     response.status_code = 200
     return response
 
-# ------------------------------------------------------------
-@simple_routes.route('/niceMesage', methods = ['GET'])
+# ------------------------------------------------------------ 
+@simple_routes.route('/niceMessage', methods = ['GET'])
 def affirmation():
     message = '''
     <H1>Think about it...</H1>
     <br />
     You only need to be 1% better today than you were yesterday!
     '''
+    response = make_response(message)
+    response.status_code = 200
+    return response
+
+@simple_routes.route("/hello")
+def hello():
+    message = "<H1>Hellow CS 3200</H1>"
     response = make_response(message)
     response.status_code = 200
     return response

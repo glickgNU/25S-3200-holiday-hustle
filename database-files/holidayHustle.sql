@@ -234,7 +234,8 @@ CREATE TABLE inputHistory (
 #1.1
 SELECT ps.SuggestionID, ps.GroupSize, FDA.pricing
 FROM personalizedSuggestions ps
-JOIN foodDecoActivities FDA on ps.SuggestionID = FDA.SuggestionID
+JOIN SuggestionsFDA sf ON ps.SuggestionID = sf.SuggestionID
+JOIN foodDecoActivities FDA ON sf.FDAID = FDA.FDAID
 WHERE ps.GroupSize >= 20
    AND FDA.Pricing <= 500;
 #1.2
@@ -250,7 +251,8 @@ WHERE ps.Allergies = 'Gluten';
 #1.4
 SELECT ps.SuggestionID, FDA.Popularity, FDA.Clicks
 FROM personalizedSuggestions ps
-JOIN foodDecoActivities FDA ON ps.SuggestionID = FDA.SuggestionID
+JOIN SuggestionsFDA sf ON ps.SuggestionID = sf.SuggestionID
+JOIN foodDecoActivities FDA ON sf.FDAID = FDA.FDAID
 WHERE FDA.Popularity >= 4 AND FDA.Clicks >= 20;
 
 #1.5
@@ -455,4 +457,14 @@ ORDER BY Frequency DESC;
 UPDATE complaints
 SET ComplaintText = CONCAT(ComplaintText, '-[RESOLVED')
 WHERE ComplaintID = 4;
-DELETE FROM complaints WHERE ComplaintID = 4
+DELETE FROM complaints WHERE ComplaintID = 4;
+
+-- Linking suggestions to food & decor activities
+INSERT INTO SuggestionsFDA (SuggestionID, FDAID)
+VALUES (2, 3);
+
+-- Viewing linked suggestion and activity details
+SELECT ps.SuggestionText, fda.Popularity, fda.Dates
+FROM SuggestionsFDA sf
+JOIN personalizedSuggestions ps ON sf.SuggestionID = ps.SuggestionID
+JOIN foodDecoActivities fda ON sf.FDAID = fda.FDAID;

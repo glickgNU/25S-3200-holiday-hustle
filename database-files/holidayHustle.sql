@@ -109,6 +109,13 @@ CREATE TABLE presets
 INSERT INTO presets VALUES (1, '2025-04-01 14:30:00', 'April Fools at Work p1', 1, 2);
 INSERT INTO presets VALUES (2, '2021-12-25 14:30:00', 'Christmas p1', 3, 1);
 
+CREATE TABLE presetSuggestions
+(
+    SuggestionID int,
+    PresetID int,
+    FOREIGN KEY (SuggestionID) REFERENCES personalizedSuggestions (SuggestionID),
+    FOREIGN KEY (PresetID) REFERENCES presets (PresetID)
+);
 
 
 CREATE TABLE complaints
@@ -164,16 +171,29 @@ CREATE TABLE foodDecoActivities
     Pricing integer,
     Dates datetime,
     Clicks integer,
-    SuggestionID integer,
-    HolidayID integer,
-    FOREIGN KEY (SuggestionID) REFERENCES personalizedSuggestions(SuggestionID),
-    FOREIGN KEY (HolidayID) REFERENCES holidays(HolidayID)
+    FDAID integer PRIMARY KEY
+);
+
+CREATE TABLE SuggestionsFDA
+(
+    SuggestionID int,
+    FDAID int,
+    FOREIGN KEY (SuggestionID) REFERENCES personalizedSuggestions (SuggestionID),
+    FOREIGN KEY (FDAID) REFERENCES foodDecoActivities (FDAID)
+);
+
+CREATE TABLE HolidayFDA
+(
+    HolidayID int,
+    FDAID int,
+    FOREIGN KEY (HolidayID) REFERENCES holidays (HolidayID),
+    FOREIGN KEY (FDAID) REFERENCES foodDecoActivities (FDAID)
 );
 
 INSERT INTO foodDecoActivities
-VALUES(96, 750, '2025-12-24', 37453, 3, 3);
+VALUES(96, 750, '2025-12-24', 37453, 1);
 INSERT INTO foodDecoActivities
-VALUES(91, 250, '2025-11-1', 21386, 1, 1);
+VALUES(91, 250, '2025-11-1', 21386, 2);
 
 CREATE TABLE exportLogs (
     LogID integer PRIMARY KEY AUTO_INCREMENT,
@@ -214,7 +234,8 @@ CREATE TABLE inputHistory (
 #1.1
 SELECT ps.SuggestionID, ps.GroupSize, FDA.pricing
 FROM personalizedSuggestions ps
-JOIN foodDecoActivities FDA on ps.SuggestionID = FDA.SuggestionID
+JOIN SuggestionsFDA sf ON ps.SuggestionID = sf.SuggestionID
+JOIN foodDecoActivities FDA ON sf.FDAID = FDA.FDAID
 WHERE ps.GroupSize >= 20
    AND FDA.Pricing <= 500;
 #1.2
@@ -230,7 +251,8 @@ WHERE ps.Allergies = 'Gluten';
 #1.4
 SELECT ps.SuggestionID, FDA.Popularity, FDA.Clicks
 FROM personalizedSuggestions ps
-JOIN foodDecoActivities FDA ON ps.SuggestionID = FDA.SuggestionID
+JOIN SuggestionsFDA sf ON ps.SuggestionID = sf.SuggestionID
+JOIN foodDecoActivities FDA ON sf.FDAID = FDA.FDAID
 WHERE FDA.Popularity >= 4 AND FDA.Clicks >= 20;
 
 #1.5

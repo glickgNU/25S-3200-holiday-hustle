@@ -457,4 +457,14 @@ ORDER BY Frequency DESC;
 UPDATE complaints
 SET ComplaintText = CONCAT(ComplaintText, '-[RESOLVED')
 WHERE ComplaintID = 4;
-DELETE FROM complaints WHERE ComplaintID = 4
+DELETE FROM complaints WHERE ComplaintID = 4;
+
+-- Linking suggestions to food & decor activities
+INSERT INTO SuggestionsFDA (SuggestionID, FDAID)
+VALUES (2, 3);
+
+-- Viewing linked suggestion and activity details
+SELECT ps.SuggestionText, fda.Popularity, fda.Dates
+FROM SuggestionsFDA sf
+JOIN personalizedSuggestions ps ON sf.SuggestionID = ps.SuggestionID
+JOIN foodDecoActivities fda ON sf.FDAID = fda.FDAID;

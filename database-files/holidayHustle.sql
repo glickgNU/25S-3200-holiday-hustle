@@ -309,12 +309,13 @@ SELECT
    AVG(f.Pricing) AS AvgSpending,
    SUM(f.Clicks) AS TotalClicks
 FROM
-   foodDecoActivities f
+   holidays h
 JOIN
-   holidays h ON f.HolidayID = h.HolidayID
+   HolidayFDA hf ON h.HolidayID = hf.HolidayID
+JOIN
+   foodDecoActivities f ON hf.FDAID = f.FDAID
 GROUP BY
    h.Name;
-
 
 -- 3.2: Top 10 suggestions by popularity and clicks with visual data
 SELECT

@@ -923,3 +923,294 @@ insert into InputHistory (InputID, InputDate) values (60, '9/28/2024');
 insert into InputHistory (InputID, InputDate) values (62, '5/17/2022');
 insert into InputHistory (InputID, InputDate) values (59, '6/8/2020');
 
+create table PersonalInformation (
+	Free VARCHAR(50),
+	Pro DECIMAL(10,2),
+	AccountID INT
+);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 1);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 2);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 3);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 4);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 5);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 6);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 7);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 8);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 9);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 10);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 11);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 12);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 13);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 14);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 15);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 16);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 17);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 18);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 19);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 20);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 21);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 22);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 23);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 24);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 25);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 26);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 27);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 28);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 29);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 30);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 31);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 32);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 33);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 34);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 35);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 36);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 37);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 38);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 39);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 40);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 41);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 42);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 43);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 44);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 45);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 46);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 47);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 48);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 49);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 50);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 51);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 52);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 53);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 54);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 55);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 56);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 57);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 58);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 59);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 60);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 61);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 62);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 63);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 64);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 65);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 66);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 67);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 68);
+insert into PersonalInformation (Free, Pro, AccountID) values (true, false, 69);
+insert into PersonalInformation (Free, Pro, AccountID) values (false, true, 70);
+
+
+create table PersonalInformation (
+	PersonalID INT,
+	Name VARCHAR(50),
+	DOB DATE,
+	UserID INT
+);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (3198, 'Sansone Jirousek', '2015-03-03 12:52:05', 1);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (9567, 'Ilse Steeden', '2022-02-19 04:44:37', 2);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (7934, 'Ced Hoffman', '2014-05-27 01:48:49', 3);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (6334, 'Ruperta Murphey', '2016-08-08 09:33:08', 4);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (5269, 'Billi Carnduff', '2016-10-02 17:49:14', 5);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4942, 'Sherill Rahill', '2016-09-22 15:11:20', 6);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4725, 'Jannelle Castles', '2024-08-16 08:24:48', 7);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4389, 'Bobby Avey', '2018-06-15 18:54:43', 8);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (5184, 'Raquel Mains', '2018-10-18 07:14:21', 9);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (2075, 'Emmy Niven', '2023-06-25 17:30:21', 10);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (5205, 'Beaufort Waud', '2023-01-03 14:19:55', 11);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (3016, 'Amos Grodden', '2020-12-28 13:04:00', 12);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (2152, 'Pinchas Girdwood', '2019-02-01 06:38:21', 13);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (1746, 'Aili Wagstaffe', '2020-01-02 23:32:15', 14);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4608, 'Harrietta Castellaccio', '2018-05-03 01:39:12', 15);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (7175, 'Elsi Castanho', '2016-06-04 21:48:54', 16);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (7642, 'Gerianne Scard', '2022-11-09 19:25:59', 17);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (9812, 'Corey Haskew', '2023-08-19 12:58:28', 18);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (8991, 'Goddart Bentley', '2024-05-22 21:34:40', 19);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (2115, 'Angie Goodnow', '2018-08-16 02:36:22', 20);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (8612, 'Noak Tander', '2021-05-03 08:34:28', 21);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (6580, 'Lora Gurge', '2017-11-18 19:38:19', 22);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (1476, 'Clemmie Schule', '2023-01-03 22:24:37', 23);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (5281, 'Harriette Toolan', '2024-05-26 00:13:13', 24);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (8498, 'Ritchie Tiernan', '2018-10-19 08:53:42', 25);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (3149, 'Fanny Raleston', '2020-06-07 18:01:45', 26);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (6950, 'Blithe Tomley', '2015-08-03 03:31:24', 27);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (1859, 'Johannes Caswill', '2017-08-04 08:06:17', 28);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (9951, 'Cammy Boyington', '2024-06-08 03:13:09', 29);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4212, 'Enrichetta Bader', '2017-12-22 11:02:39', 30);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (8659, 'Evelina Tithecott', '2020-01-27 07:37:53', 31);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (2348, 'Shem Artinstall', '2016-08-24 00:12:35', 32);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (3038, 'Lorry Keig', '2018-03-22 06:56:40', 33);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (642, 'Laure Foulstone', '2014-01-05 22:37:05', 34);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (8656, 'Mick Splaven', '2014-10-15 02:10:13', 35);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (8697, 'Katrine Battrum', '2014-03-16 17:25:58', 36);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (6895, 'Rhoda Schout', '2018-08-13 02:28:11', 37);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (763, 'Leshia Lorne', '2014-05-28 19:08:43', 38);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (365, 'Sandor Lowndsborough', '2022-12-20 21:30:46', 39);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4563, 'Chilton Harness', '2019-08-05 02:53:15', 40);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (312, 'Sawyer MacMechan', '2014-06-25 14:58:16', 41);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4342, 'Maudie MacCafferty', '2022-04-15 21:51:03', 42);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4723, 'Bevon Deeks', '2022-04-28 12:49:57', 43);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (581, 'Joscelin Loweth', '2023-01-16 09:07:32', 44);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (3489, 'Daveen Boobier', '2014-05-03 10:28:16', 45);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4604, 'Susette Pelz', '2014-04-23 22:58:35', 46);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (1897, 'Roxi Dagon', '2019-09-28 04:12:12', 47);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (5068, 'Bekki Rassell', '2023-03-09 00:24:57', 48);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (913, 'Avivah Floyed', '2015-01-06 12:45:26', 49);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (2097, 'Bard MacGorman', '2018-10-23 16:56:15', 50);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (1656, 'Vin Grelak', '2019-12-30 11:06:49', 51);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (9775, 'Elisha Bolsover', '2023-10-16 16:34:16', 52);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4727, 'Maressa Corradengo', '2024-01-20 23:04:06', 53);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (8184, 'Ruthie Ridge', '2024-12-15 00:53:20', 54);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (3073, 'Amalia Shearer', '2023-11-30 18:38:57', 55);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (6763, 'Raphael Renfrew', '2018-08-10 08:32:35', 56);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (5311, 'Cazzie Hemphall', '2014-10-31 23:42:59', 57);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (3416, 'Granthem Ruzek', '2016-02-03 20:42:16', 58);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (5122, 'Rori Hulance', '2018-06-06 08:37:40', 59);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (8159, 'Johan Cockings', '2024-05-16 00:37:15', 60);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4267, 'Kalil Dulake', '2016-08-13 12:46:22', 61);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (8719, 'Alexei Noe', '2022-05-30 00:12:37', 62);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (8685, 'Micaela Hinkley', '2015-09-01 12:13:05', 63);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (5299, 'Riva Asee', '2017-09-12 13:35:06', 64);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4686, 'Gennifer Boni', '2021-03-22 01:22:10', 65);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (2508, 'Annadiana Dullingham', '2022-07-28 09:49:27', 66);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (3846, 'Mellisa Smyth', '2024-09-10 17:23:09', 67);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (7089, 'Norman Tickel', '2022-08-10 03:43:45', 68);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4527, 'Alejoa Pittham', '2020-09-10 00:09:05', 69);
+insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (703, 'Mikael Thompkins', '2016-04-12 17:37:09', 70);
+
+
+create table Inputs (
+	AppId INT,
+	Popularity INT,
+	ImportID INT
+);
+insert into Inputs (AppId, Popularity, ImportID) values (8401, 6608, 45);
+insert into Inputs (AppId, Popularity, ImportID) values (6492, 1615, 39);
+insert into Inputs (AppId, Popularity, ImportID) values (4771, 3387, 12);
+insert into Inputs (AppId, Popularity, ImportID) values (5414, 4491, 44);
+insert into Inputs (AppId, Popularity, ImportID) values (3372, 409, 30);
+insert into Inputs (AppId, Popularity, ImportID) values (2780, 9129, 17);
+insert into Inputs (AppId, Popularity, ImportID) values (6245, 6953, 56);
+insert into Inputs (AppId, Popularity, ImportID) values (2312, 9935, 35);
+insert into Inputs (AppId, Popularity, ImportID) values (891, 7435, 28);
+insert into Inputs (AppId, Popularity, ImportID) values (2740, 7103, 33);
+insert into Inputs (AppId, Popularity, ImportID) values (4389, 7316, 22);
+insert into Inputs (AppId, Popularity, ImportID) values (1922, 7458, 24);
+insert into Inputs (AppId, Popularity, ImportID) values (9147, 292, 8);
+insert into Inputs (AppId, Popularity, ImportID) values (4811, 2782, 13);
+insert into Inputs (AppId, Popularity, ImportID) values (5980, 5402, 2);
+insert into Inputs (AppId, Popularity, ImportID) values (4878, 5824, 28);
+insert into Inputs (AppId, Popularity, ImportID) values (7802, 6657, 54);
+insert into Inputs (AppId, Popularity, ImportID) values (6366, 5150, 59);
+insert into Inputs (AppId, Popularity, ImportID) values (4744, 6414, 63);
+insert into Inputs (AppId, Popularity, ImportID) values (4767, 1048, 27);
+insert into Inputs (AppId, Popularity, ImportID) values (1327, 1822, 64);
+insert into Inputs (AppId, Popularity, ImportID) values (3924, 6898, 30);
+insert into Inputs (AppId, Popularity, ImportID) values (7122, 3256, 22);
+insert into Inputs (AppId, Popularity, ImportID) values (8200, 5612, 64);
+insert into Inputs (AppId, Popularity, ImportID) values (6480, 1584, 49);
+insert into Inputs (AppId, Popularity, ImportID) values (7695, 1360, 21);
+insert into Inputs (AppId, Popularity, ImportID) values (8490, 5728, 48);
+insert into Inputs (AppId, Popularity, ImportID) values (5652, 9182, 24);
+insert into Inputs (AppId, Popularity, ImportID) values (746, 6222, 41);
+insert into Inputs (AppId, Popularity, ImportID) values (8316, 6405, 31);
+insert into Inputs (AppId, Popularity, ImportID) values (8327, 233, 65);
+insert into Inputs (AppId, Popularity, ImportID) values (8025, 8610, 51);
+insert into Inputs (AppId, Popularity, ImportID) values (5512, 1995, 28);
+insert into Inputs (AppId, Popularity, ImportID) values (7845, 7689, 46);
+insert into Inputs (AppId, Popularity, ImportID) values (1787, 4755, 29);
+insert into Inputs (AppId, Popularity, ImportID) values (8863, 2795, 57);
+insert into Inputs (AppId, Popularity, ImportID) values (5042, 9455, 36);
+insert into Inputs (AppId, Popularity, ImportID) values (4096, 5695, 41);
+insert into Inputs (AppId, Popularity, ImportID) values (6502, 4241, 33);
+insert into Inputs (AppId, Popularity, ImportID) values (6299, 9962, 51);
+insert into Inputs (AppId, Popularity, ImportID) values (1739, 6941, 63);
+insert into Inputs (AppId, Popularity, ImportID) values (3852, 1301, 13);
+insert into Inputs (AppId, Popularity, ImportID) values (6777, 4390, 42);
+insert into Inputs (AppId, Popularity, ImportID) values (7181, 8518, 16);
+insert into Inputs (AppId, Popularity, ImportID) values (5994, 7283, 61);
+insert into Inputs (AppId, Popularity, ImportID) values (4763, 1906, 14);
+insert into Inputs (AppId, Popularity, ImportID) values (1408, 2428, 23);
+insert into Inputs (AppId, Popularity, ImportID) values (9242, 4261, 67);
+insert into Inputs (AppId, Popularity, ImportID) values (5144, 3776, 12);
+insert into Inputs (AppId, Popularity, ImportID) values (7733, 7525, 2);
+insert into Inputs (AppId, Popularity, ImportID) values (9192, 2786, 14);
+insert into Inputs (AppId, Popularity, ImportID) values (5540, 230, 8);
+insert into Inputs (AppId, Popularity, ImportID) values (9319, 9821, 44);
+insert into Inputs (AppId, Popularity, ImportID) values (8677, 4307, 20);
+insert into Inputs (AppId, Popularity, ImportID) values (9027, 2627, 45);
+insert into Inputs (AppId, Popularity, ImportID) values (5877, 8548, 11);
+insert into Inputs (AppId, Popularity, ImportID) values (1557, 6478, 43);
+insert into Inputs (AppId, Popularity, ImportID) values (51, 4344, 45);
+insert into Inputs (AppId, Popularity, ImportID) values (6002, 1391, 52);
+insert into Inputs (AppId, Popularity, ImportID) values (8782, 735, 16);
+insert into Inputs (AppId, Popularity, ImportID) values (6034, 1020, 32);
+insert into Inputs (AppId, Popularity, ImportID) values (8398, 6107, 30);
+insert into Inputs (AppId, Popularity, ImportID) values (3191, 6434, 34);
+insert into Inputs (AppId, Popularity, ImportID) values (6933, 1682, 9);
+insert into Inputs (AppId, Popularity, ImportID) values (9154, 5004, 48);
+insert into Inputs (AppId, Popularity, ImportID) values (4745, 5300, 70);
+insert into Inputs (AppId, Popularity, ImportID) values (7475, 4174, 25);
+insert into Inputs (AppId, Popularity, ImportID) values (1945, 9674, 17);
+insert into Inputs (AppId, Popularity, ImportID) values (9019, 6374, 2);
+insert into Inputs (AppId, Popularity, ImportID) values (5539, 8661, 22);
+
+
+CREATE TABLE complaints (
+    ComplaintID integer PRIMARY KEY,
+    ComplaintText varchar(500),
+    UserID integer,
+    AppID integer,
+    ComplaintDate DATE
+);
+
+INSERT INTO complaints (ComplaintID, ComplaintText, UserID, AppID, ComplaintDate) VALUES
+(1, 'There are too many ads on this site', 101, 5, '2024-01-05'),
+(2, 'App crashes when opening camera', 102, 3, '2024-01-07'),
+(3, 'Login takes too long', 103, 2, '2024-01-08'),
+(4, 'Notifications not working', 104, 1, '2024-01-10'),
+(5, 'Profile picture won''t upload', 105, 4, '2024-01-12'),
+(6, 'Search function is broken', 106, 5, '2024-01-15'),
+(7, 'Too many spam messages', 107, 3, '2024-01-16'),
+(8, 'Dark mode not working properly', 108, 2, '2024-01-18'),
+(9, 'Battery drains too fast', 109, 1, '2024-01-20'),
+(10, 'Can''t change password', 110, 4, '2024-01-22'),
+(11, 'App freezes during video calls', 111, 5, '2024-01-25'),
+(12, 'Too many permissions required', 112, 3, '2024-01-26'),
+(13, 'Font size too small', 113, 2, '2024-01-28'),
+(14, 'Messages not syncing', 114, 1, '2024-01-30'),
+(15, 'Payment failed but money deducted', 115, 4, '2024-02-01'),
+(16, 'Can''t delete account', 116, 5, '2024-02-03'),
+(17, 'Too many fake profiles', 117, 3, '2024-02-05'),
+(18, 'App logs me out randomly', 118, 2, '2024-02-07'),
+(19, 'Video quality is poor', 119, 1, '2024-02-09'),
+(20, 'Can''t update profile information', 120, 4, '2024-02-11'),
+(21, 'App not available in my country', 121, 5, '2024-02-13'),
+(22, 'Too much data usage', 122, 3, '2024-02-15'),
+(23, 'Can''t block users', 123, 2, '2024-02-17'),
+(24, 'App icon disappeared', 124, 1, '2024-02-19'),
+(25, 'Two-factor authentication broken', 125, 4, '2024-02-21'),
+(26, 'Too many push notifications', 126, 5, '2024-02-23'),
+(27, 'App won''t remember login', 127, 3, '2024-02-25'),
+(28, 'Can''t report bugs', 128, 2, '2024-02-27'),
+(29, 'App takes too much storage', 129, 1, '2024-02-29'),
+(30, 'Can''t change email address', 130, 4, '2024-03-02'),
+(31, 'App overheats my phone', 131, 5, '2024-03-04'),
+(32, 'Too many irrelevant suggestions', 132, 3, '2024-03-06'),
+(33, 'Can''t delete messages', 133, 2, '2024-03-08'),
+(34, 'App won''t open links', 134, 1, '2024-03-10'),
+(35, 'Password reset not working', 135, 4, '2024-03-12'),
+(36, 'App keeps asking for rating', 136, 5, '2024-03-14'),
+(37, 'Can''t mute group chats', 137, 3, '2024-03-16'),
+(38, 'App doesn''t support my device', 138, 2, '2024-03-18'),
+(39, 'Too many steps to log out', 139, 1, '2024-03-20'),
+(40, 'Can''t find privacy settings', 140, 4, '2024-03-22'),
+(41, 'App won''t rotate screen', 141, 5, '2024-03-24'),
+(42, 'Too many in-app purchases', 142, 3, '2024-03-26'),
+(43, 'Can''t change notification sound', 143, 2, '2024-03-28'),
+(44, 'App crashes when receiving calls', 144, 1, '2024-03-30'),
+(45, 'Can''t disable read receipts', 145, 4, '2024-04-01'),
+(46, 'App runs slow on my device', 146, 5, '2024-04-03'),
+(47, 'Too many required updates', 147, 3, '2024-04-05'),
+(48, 'Can''t share files properly', 148, 2, '2024-04-07'),
+(49, 'App won''t remember preferences', 149, 1, '2024-04-09'),
+(50, 'Can''t access help section', 150, 4, '2024-04-11');

@@ -50,15 +50,15 @@ INSERT INTO accounts VALUES(3,
 
 CREATE TABLE subscription
 (
-    Pro varchar(50),
-    Free varchar(50),
+    Pro BOOLEAN,
+    Free BOOLEAN,
     AccountID integer NOT NULL,
     FOREIGN KEY (AccountID) REFERENCES accounts (AccountID)
 );
 
-INSERT INTO subscription VALUES ('Has Pro Version', 'Not using Free Version', 1);
-INSERT INTO subscription VALUES ('Has Pro Version', 'Not using Free Version', 1);
-INSERT INTO subscription VALUES ('Does not have Pro Version', 'Currently using Free Version', 1);
+INSERT INTO subscription VALUES (TRUE, FALSE, 1);
+INSERT INTO subscription VALUES (TRUE, FALSE, 1);
+INSERT INTO subscription VALUES (FALSE, TRUE, 1);
 
 
 
@@ -264,7 +264,7 @@ WHERE p.PresetID = 1225 AND p.UserID = 1;
 #1.6
 UPDATE subscription s
 JOIN accounts a ON s.AccountID = a.AccountID
-SET s.Pro = 'TRUE', s.Free = 'FALSE'
+SET s.Pro = TRUE, s.Free = FALSE
 WHERE a.AccountID = 1 AND a.UserID = 1;
 
 
@@ -430,11 +430,11 @@ DELETE FROM presets WHERE PresetID = 2;
 
 -- Adding monetization methods
 INSERT INTO  subscription (Pro, Free, AccountID)
-VALUES ('Ad Free Premium', 'Basic with Ads', 3);
+VALUES (TRUE, FALSE, 3);
 SELECT * FROM subscription;
 
 UPDATE subscription
-SET Pro = 'PREMIUM+ (Exclusive Content)', Free = 'Basic with Limited Access'
+SET Pro = FALSE, Free = TRUE
 WHERE AccountID = 3;
 
 -- Displaying most popular events

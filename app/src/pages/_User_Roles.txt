@@ -11,7 +11,7 @@ PERSONA 1: Barbara Murphy, Casual User
 
 PERSONA 2: Jason Smith, Experienced Event Planner
 - 1) suggestions page -> for budgeting suggestions with input suggestions (specify allergies: etc.), input price range
-04_Subscription_Page.py
+05_Suggestions_Page.py
 - 2) history tab -> what were past suggestions 
 06_Suggestions_History_Page.py
 - 3) specialized search page 

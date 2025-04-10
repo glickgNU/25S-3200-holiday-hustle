@@ -15,6 +15,12 @@ Simply retrieving data from a REST api running in a separate Docker Container.
 If the container isn't running, this will be very unhappy.  But the Streamlit app 
 should not totally die. 
 """
+product = requests.get('http://api:4000/p/product').json
+
+try:
+  st.dataframe(product)
+except:
+  st.write("Could not connect to database")
 data = {} 
 try:
   data = requests.get('http://api:4000/data').json()

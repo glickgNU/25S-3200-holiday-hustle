@@ -30,6 +30,22 @@ def WorldBankVizNav():
 def MapDemoNav():
     st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
 
+#### ------------------------ Examples for Role of casual_user ------------------------
+def casualUser():
+    st.sidebar.page_link("pages/00_Casual_User_Home.py", label="Casual User Home", icon="👤")
+
+#### ------------------------ Examples for Role of experienced_user ------------------------
+def experiencedUser():
+    st.sidebar.page_link("pages/01_Experienced_User_Home.py", label="Experienced User Home", icon="🗺️")
+
+#### ------------------------ Examples for Role of data_analyst_user ------------------------
+def dataAnalystUser():
+    st.sidebar.page_link("pages/02_Data_Analyst_User_Home.py", label="Data Analyst User Home", icon="📈")
+
+#### ------------------------ Examples for Role of system_administrator_user ------------------------
+def systemAdministratorUser():
+    st.sidebar.page_link("pages/03_System_Admin_User_Home.py", label="System Administrator User Home", icon="🗺️")
+
 
 ## ------------------------ Examples for Role of usaid_worker ------------------------
 def ApiTestNav():

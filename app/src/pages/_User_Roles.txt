@@ -1,7 +1,21 @@
+PAGES NEEDED
 PERSONA 1: Barbara Murphy, Casual User
+- 1) My subcriptions page (subcriptions plan (pro or free), cancel subcription)
+- 2) suggestions page -> for budgeting suggestions with input suggestions (specify allergies: etc.) input price range
+- 3) save suggestions button, history tab -> what were past suggestions presets
+- 4) help page -> file a complaint 
 
 PERSONA 2: Jason Smith, Experienced Event Planner
+- 1) suggestions page -> for budgeting suggestions with input suggestions (specify allergies: etc.), input price range
+- 2) history tab -> what were past suggestions 
+- 3) specialized search page 
 
 PERSONA 3: Carlos Ramirez, Data Analyst
+- 1) Reports page (only accessed by this type of user)
+- 2) download reports option
+
 
 PERSONA 4: David Shah, Systems Administrator
+- 1) user activity page 
+- 2) user complaints page 
+- 3) tools to modify interface for system admin user

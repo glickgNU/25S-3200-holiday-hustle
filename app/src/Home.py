@@ -34,7 +34,7 @@ SideBarLinks(show_home=True)
 
 # set the title of the page and provide a simple prompt. 
 logger.info("Loading the Home page of the app")
-st.title('CS 3200 Sample Semester Project App')
+st.title('Welcome to HolidayHustle™!')
 st.write('\n\n')
 st.write('### HI! As which user would you like to log in?')
 
@@ -73,5 +73,68 @@ if st.button('Act as System Administrator',
     st.session_state['first_name'] = 'JoeSysAdmin'
     st.switch_page('pages/20_Admin_Home.py')
 
+# PERSONA 1
+if st.button("Act as Barbara, a Casual User", 
+            type = 'primary', 
+            use_container_width=True):
+    # when user clicks the button, they are now considered authenticated
+    st.session_state['authenticated'] = True
+    # we set the role of the current user
+    st.session_state['role'] = 'casual_user'
+    # we add the first name of the user (so it can be displayed on 
+    # subsequent pages). 
+    st.session_state['first_name'] = 'Barbara'
+    # finally, we ask streamlit to switch to another page, in this case, the 
+    # landing page for this particular user type
+    logger.info("Logging in as Casual User Persona")
+    st.switch_page('pages/00_Casual_User_Home.py')
 
 
+#PERSONA 2
+if st.button("Act as Jason, an Experienced Event Planner", 
+            type = 'primary', 
+            use_container_width=True):
+    # when user clicks the button, they are now considered authenticated
+    st.session_state['authenticated'] = True
+    # we set the role of the current user
+    st.session_state['role'] = 'experienced_user'
+    # we add the first name of the user (so it can be displayed on 
+    # subsequent pages). 
+    st.session_state['first_name'] = 'Jason'
+    # finally, we ask streamlit to switch to another page, in this case, the 
+    # landing page for this particular user type
+    logger.info("Logging in as Event Planner Persona")
+    st.switch_page('pages/01_Experienced_User_Home.py')
+
+#PERSONA 3
+if st.button("Act as Carlos, a Data Analyst", 
+            type = 'primary', 
+            use_container_width=True):
+    # when user clicks the button, they are now considered authenticated
+    st.session_state['authenticated'] = True
+    # we set the role of the current user
+    st.session_state['role'] = 'data_analyst'
+    # we add the first name of the user (so it can be displayed on 
+    # subsequent pages). 
+    st.session_state['first_name'] = 'Carlos'
+    # finally, we ask streamlit to switch to another page, in this case, the 
+    # landing page for this particular user type
+    logger.info("Logging in as Data Analyst Persona")
+    st.switch_page('pages/02_Data_Analyst_User_Home.py')
+
+    
+#PERSONA 4
+if st.button("Act as David, a System Administrator", 
+            type = 'primary', 
+            use_container_width=True):
+    # when user clicks the button, they are now considered authenticated
+    st.session_state['authenticated'] = True
+    # we set the role of the current user
+    st.session_state['role'] = 'system_admin'
+    # we add the first name of the user (so it can be displayed on 
+    # subsequent pages). 
+    st.session_state['first_name'] = 'David'
+    # finally, we ask streamlit to switch to another page, in this case, the 
+    # landing page for this particular user type
+    logger.info("Logging in as a System Administrator")
+    st.switch_page('pages/03_System_Admin_User_Home.py')

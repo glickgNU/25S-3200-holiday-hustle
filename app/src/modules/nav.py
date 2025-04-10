@@ -109,6 +109,21 @@ def SideBarLinks(show_home=False):
         if st.session_state["role"] == "administrator":
             AdminPageNav()
 
+       # If the user is casual, give them access to a normal user pages
+        if st.session_state["role"] == "casual_user":
+            ""
+
+        # If the user is an experienced event planner, give them access to a experienced event planner user pages
+        if st.session_state["role"] == "experienced_user":
+            ""
+
+          # If the user is an experienced event planner, give them access to a experienced event planner user pages
+        if st.session_state["role"] == "data_analyst":
+            ""
+        
+              # If the user is an experienced event planner, give them access to a experienced event planner user pages
+        if st.session_state["role"] == "system_admin":
+            ""
     # Always show the About page at the bottom of the list of links
     AboutPageNav()
 

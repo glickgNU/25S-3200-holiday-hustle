@@ -1076,3 +1076,141 @@ insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (3846, 'M
 insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (7089, 'Norman Tickel', '2022-08-10 03:43:45', 68);
 insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (4527, 'Alejoa Pittham', '2020-09-10 00:09:05', 69);
 insert into PersonalInformation (PersonalID, Name, DOB, UserID) values (703, 'Mikael Thompkins', '2016-04-12 17:37:09', 70);
+
+
+create table Inputs (
+	AppId INT,
+	Popularity INT,
+	ImportID INT
+);
+insert into Inputs (AppId, Popularity, ImportID) values (8401, 6608, 45);
+insert into Inputs (AppId, Popularity, ImportID) values (6492, 1615, 39);
+insert into Inputs (AppId, Popularity, ImportID) values (4771, 3387, 12);
+insert into Inputs (AppId, Popularity, ImportID) values (5414, 4491, 44);
+insert into Inputs (AppId, Popularity, ImportID) values (3372, 409, 30);
+insert into Inputs (AppId, Popularity, ImportID) values (2780, 9129, 17);
+insert into Inputs (AppId, Popularity, ImportID) values (6245, 6953, 56);
+insert into Inputs (AppId, Popularity, ImportID) values (2312, 9935, 35);
+insert into Inputs (AppId, Popularity, ImportID) values (891, 7435, 28);
+insert into Inputs (AppId, Popularity, ImportID) values (2740, 7103, 33);
+insert into Inputs (AppId, Popularity, ImportID) values (4389, 7316, 22);
+insert into Inputs (AppId, Popularity, ImportID) values (1922, 7458, 24);
+insert into Inputs (AppId, Popularity, ImportID) values (9147, 292, 8);
+insert into Inputs (AppId, Popularity, ImportID) values (4811, 2782, 13);
+insert into Inputs (AppId, Popularity, ImportID) values (5980, 5402, 2);
+insert into Inputs (AppId, Popularity, ImportID) values (4878, 5824, 28);
+insert into Inputs (AppId, Popularity, ImportID) values (7802, 6657, 54);
+insert into Inputs (AppId, Popularity, ImportID) values (6366, 5150, 59);
+insert into Inputs (AppId, Popularity, ImportID) values (4744, 6414, 63);
+insert into Inputs (AppId, Popularity, ImportID) values (4767, 1048, 27);
+insert into Inputs (AppId, Popularity, ImportID) values (1327, 1822, 64);
+insert into Inputs (AppId, Popularity, ImportID) values (3924, 6898, 30);
+insert into Inputs (AppId, Popularity, ImportID) values (7122, 3256, 22);
+insert into Inputs (AppId, Popularity, ImportID) values (8200, 5612, 64);
+insert into Inputs (AppId, Popularity, ImportID) values (6480, 1584, 49);
+insert into Inputs (AppId, Popularity, ImportID) values (7695, 1360, 21);
+insert into Inputs (AppId, Popularity, ImportID) values (8490, 5728, 48);
+insert into Inputs (AppId, Popularity, ImportID) values (5652, 9182, 24);
+insert into Inputs (AppId, Popularity, ImportID) values (746, 6222, 41);
+insert into Inputs (AppId, Popularity, ImportID) values (8316, 6405, 31);
+insert into Inputs (AppId, Popularity, ImportID) values (8327, 233, 65);
+insert into Inputs (AppId, Popularity, ImportID) values (8025, 8610, 51);
+insert into Inputs (AppId, Popularity, ImportID) values (5512, 1995, 28);
+insert into Inputs (AppId, Popularity, ImportID) values (7845, 7689, 46);
+insert into Inputs (AppId, Popularity, ImportID) values (1787, 4755, 29);
+insert into Inputs (AppId, Popularity, ImportID) values (8863, 2795, 57);
+insert into Inputs (AppId, Popularity, ImportID) values (5042, 9455, 36);
+insert into Inputs (AppId, Popularity, ImportID) values (4096, 5695, 41);
+insert into Inputs (AppId, Popularity, ImportID) values (6502, 4241, 33);
+insert into Inputs (AppId, Popularity, ImportID) values (6299, 9962, 51);
+insert into Inputs (AppId, Popularity, ImportID) values (1739, 6941, 63);
+insert into Inputs (AppId, Popularity, ImportID) values (3852, 1301, 13);
+insert into Inputs (AppId, Popularity, ImportID) values (6777, 4390, 42);
+insert into Inputs (AppId, Popularity, ImportID) values (7181, 8518, 16);
+insert into Inputs (AppId, Popularity, ImportID) values (5994, 7283, 61);
+insert into Inputs (AppId, Popularity, ImportID) values (4763, 1906, 14);
+insert into Inputs (AppId, Popularity, ImportID) values (1408, 2428, 23);
+insert into Inputs (AppId, Popularity, ImportID) values (9242, 4261, 67);
+insert into Inputs (AppId, Popularity, ImportID) values (5144, 3776, 12);
+insert into Inputs (AppId, Popularity, ImportID) values (7733, 7525, 2);
+insert into Inputs (AppId, Popularity, ImportID) values (9192, 2786, 14);
+insert into Inputs (AppId, Popularity, ImportID) values (5540, 230, 8);
+insert into Inputs (AppId, Popularity, ImportID) values (9319, 9821, 44);
+insert into Inputs (AppId, Popularity, ImportID) values (8677, 4307, 20);
+insert into Inputs (AppId, Popularity, ImportID) values (9027, 2627, 45);
+insert into Inputs (AppId, Popularity, ImportID) values (5877, 8548, 11);
+insert into Inputs (AppId, Popularity, ImportID) values (1557, 6478, 43);
+insert into Inputs (AppId, Popularity, ImportID) values (51, 4344, 45);
+insert into Inputs (AppId, Popularity, ImportID) values (6002, 1391, 52);
+insert into Inputs (AppId, Popularity, ImportID) values (8782, 735, 16);
+insert into Inputs (AppId, Popularity, ImportID) values (6034, 1020, 32);
+insert into Inputs (AppId, Popularity, ImportID) values (8398, 6107, 30);
+insert into Inputs (AppId, Popularity, ImportID) values (3191, 6434, 34);
+insert into Inputs (AppId, Popularity, ImportID) values (6933, 1682, 9);
+insert into Inputs (AppId, Popularity, ImportID) values (9154, 5004, 48);
+insert into Inputs (AppId, Popularity, ImportID) values (4745, 5300, 70);
+insert into Inputs (AppId, Popularity, ImportID) values (7475, 4174, 25);
+insert into Inputs (AppId, Popularity, ImportID) values (1945, 9674, 17);
+insert into Inputs (AppId, Popularity, ImportID) values (9019, 6374, 2);
+insert into Inputs (AppId, Popularity, ImportID) values (5539, 8661, 22);
+
+
+CREATE TABLE complaints (
+    ComplaintID integer PRIMARY KEY,
+    ComplaintText varchar(500),
+    UserID integer,
+    AppID integer,
+    ComplaintDate DATE
+);
+
+INSERT INTO complaints (ComplaintID, ComplaintText, UserID, AppID, ComplaintDate) VALUES
+(1, 'There are too many ads on this site', 101, 5, '2024-01-05'),
+(2, 'App crashes when opening camera', 102, 3, '2024-01-07'),
+(3, 'Login takes too long', 103, 2, '2024-01-08'),
+(4, 'Notifications not working', 104, 1, '2024-01-10'),
+(5, 'Profile picture won''t upload', 105, 4, '2024-01-12'),
+(6, 'Search function is broken', 106, 5, '2024-01-15'),
+(7, 'Too many spam messages', 107, 3, '2024-01-16'),
+(8, 'Dark mode not working properly', 108, 2, '2024-01-18'),
+(9, 'Battery drains too fast', 109, 1, '2024-01-20'),
+(10, 'Can''t change password', 110, 4, '2024-01-22'),
+(11, 'App freezes during video calls', 111, 5, '2024-01-25'),
+(12, 'Too many permissions required', 112, 3, '2024-01-26'),
+(13, 'Font size too small', 113, 2, '2024-01-28'),
+(14, 'Messages not syncing', 114, 1, '2024-01-30'),
+(15, 'Payment failed but money deducted', 115, 4, '2024-02-01'),
+(16, 'Can''t delete account', 116, 5, '2024-02-03'),
+(17, 'Too many fake profiles', 117, 3, '2024-02-05'),
+(18, 'App logs me out randomly', 118, 2, '2024-02-07'),
+(19, 'Video quality is poor', 119, 1, '2024-02-09'),
+(20, 'Can''t update profile information', 120, 4, '2024-02-11'),
+(21, 'App not available in my country', 121, 5, '2024-02-13'),
+(22, 'Too much data usage', 122, 3, '2024-02-15'),
+(23, 'Can''t block users', 123, 2, '2024-02-17'),
+(24, 'App icon disappeared', 124, 1, '2024-02-19'),
+(25, 'Two-factor authentication broken', 125, 4, '2024-02-21'),
+(26, 'Too many push notifications', 126, 5, '2024-02-23'),
+(27, 'App won''t remember login', 127, 3, '2024-02-25'),
+(28, 'Can''t report bugs', 128, 2, '2024-02-27'),
+(29, 'App takes too much storage', 129, 1, '2024-02-29'),
+(30, 'Can''t change email address', 130, 4, '2024-03-02'),
+(31, 'App overheats my phone', 131, 5, '2024-03-04'),
+(32, 'Too many irrelevant suggestions', 132, 3, '2024-03-06'),
+(33, 'Can''t delete messages', 133, 2, '2024-03-08'),
+(34, 'App won''t open links', 134, 1, '2024-03-10'),
+(35, 'Password reset not working', 135, 4, '2024-03-12'),
+(36, 'App keeps asking for rating', 136, 5, '2024-03-14'),
+(37, 'Can''t mute group chats', 137, 3, '2024-03-16'),
+(38, 'App doesn''t support my device', 138, 2, '2024-03-18'),
+(39, 'Too many steps to log out', 139, 1, '2024-03-20'),
+(40, 'Can''t find privacy settings', 140, 4, '2024-03-22'),
+(41, 'App won''t rotate screen', 141, 5, '2024-03-24'),
+(42, 'Too many in-app purchases', 142, 3, '2024-03-26'),
+(43, 'Can''t change notification sound', 143, 2, '2024-03-28'),
+(44, 'App crashes when receiving calls', 144, 1, '2024-03-30'),
+(45, 'Can''t disable read receipts', 145, 4, '2024-04-01'),
+(46, 'App runs slow on my device', 146, 5, '2024-04-03'),
+(47, 'Too many required updates', 147, 3, '2024-04-05'),
+(48, 'Can''t share files properly', 148, 2, '2024-04-07'),
+(49, 'App won''t remember preferences', 149, 1, '2024-04-09'),
+(50, 'Can''t access help section', 150, 4, '2024-04-11');

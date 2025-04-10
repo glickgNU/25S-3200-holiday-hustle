@@ -1,21 +1,33 @@
 PAGES NEEDED
 PERSONA 1: Barbara Murphy, Casual User
 - 1) My subcriptions page (subcriptions plan (pro or free), cancel subcription)
+04_Subscription_Page.py
 - 2) suggestions page -> for budgeting suggestions with input suggestions (specify allergies: etc.) input price range
+05_Suggestions_Page.py
 - 3) save suggestions button, history tab -> what were past suggestions presets
+06_Suggestions_History_Page.py
 - 4) help page -> file a complaint 
+07_Make_Complaint_Page.py
 
 PERSONA 2: Jason Smith, Experienced Event Planner
 - 1) suggestions page -> for budgeting suggestions with input suggestions (specify allergies: etc.), input price range
+04_Subscription_Page.py
 - 2) history tab -> what were past suggestions 
+06_Suggestions_History_Page.py
 - 3) specialized search page 
+08_Specialized_Search_Page.py
 
 PERSONA 3: Carlos Ramirez, Data Analyst
 - 1) Reports page (only accessed by this type of user)
+09_Reports_Page.py
 - 2) download reports option
+10_Download_Reports_Page.py
 
 
 PERSONA 4: David Shah, Systems Administrator
 - 1) user activity page 
+11_View_User_Activity_Page.py
 - 2) user complaints page 
+12_View_User_Complaints_Page.py
 - 3) tools to modify interface for system admin user
+13_Access_Interface_Modification_Tools_Page.py

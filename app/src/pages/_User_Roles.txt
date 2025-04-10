@@ -1,0 +1,7 @@
+PERSONA 1: Barbara Murphy, Casual User
+
+PERSONA 2: Jason Smith, Experienced Event Planner
+
+PERSONA 3: Carlos Ramirez, Data Analyst
+
+PERSONA 4: David Shah, Systems Administrator

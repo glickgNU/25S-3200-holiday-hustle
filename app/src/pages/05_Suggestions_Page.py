@@ -14,3 +14,10 @@ SideBarLinks()
 
 # set the header of the page
 st.header('Suggestions Page')
+
+
+# inputs
+#
+#
+#
+#

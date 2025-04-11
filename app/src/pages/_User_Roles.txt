@@ -20,6 +20,8 @@ PERSONA 2: Jason Smith, Experienced Event Planner
 PERSONA 3: Carlos Ramirez, Data Analyst
 - 1) Reports page (only accessed by this type of user)
 09_Reports_Page.py
+https://echarts.streamlit.app/?ref=streamlit-io-gallery-favorites
+
 - 2) download reports option
 10_Download_Reports_Page.py
 

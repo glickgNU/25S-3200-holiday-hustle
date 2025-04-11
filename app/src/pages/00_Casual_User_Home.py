@@ -14,14 +14,23 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
-## CHANGE BUTTONS
-if st.button('View World Bank Data Visualization', 
+if st.button('View Subscription Page', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/01_World_Bank_Viz.py')
+  st.switch_page('pages/04_Subscription_Page.py')
 
-if st.button('View World Map Demo', 
+if st.button('View Suggestions Page', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/02_Map_Demo.py')
+  st.switch_page('pages/05_Suggestions_Page.py')
+
+if st.button('View Suggestions History Page', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/06_Suggestions_History_Page.py')
+
+if st.button('Make Complaint Page', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/07_Make_Complaint_Page.py')
 

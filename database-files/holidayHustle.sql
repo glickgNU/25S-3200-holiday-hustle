@@ -287,13 +287,15 @@ FROM inputHistory
 -- 4. As a planner, I would like to see the price of the suggested decorations, food,
 -- and activities relative to a given price range
     SELECT fda.Pricing
-    FROM personalizedSuggestions ps JOIN foodDecoActivities fda on ps.SuggestionID = fda.SuggestionID
+    FROM personalizedSuggestions ps JOIN SuggestionsFDA sfda on ps.SuggestionID = sfda.SuggestionID
+    JOIN foodDecoActivities fda ON fda.FDAID = sfda.FDAID
     WHERE 25 < fda.Pricing < 50; -- Example of a price range
 
 -- 5. As a planner, I would like to see the most popular items for the given parameters,
     SELECT *
-    FROM personalizedSuggestions ps JOIN foodDecoActivities f on ps.SuggestionID = f.SuggestionID
-    ORDER BY f.Popularity
+    FROM personalizedSuggestions ps JOIN SuggestionsFDA sfda on ps.SuggestionID = sfda.SuggestionID
+    JOIN foodDecoActivities fda ON fda.FDAID = sfda.FDAID
+    ORDER BY fda.Popularity
     LIMIT 5; -- Cut Off example
 
 -- 6. As a planner, I would like to see what are popular parameters
@@ -403,8 +405,10 @@ UPDATE users u JOIN accounts a on u.UserID = a.UserID
 SET u.MarkedForRemoval = FALSE
 WHERE u.UserID = 1;
 
--- DELETE FROM users  WHERE users.MarkedForRemoval = true;
+-- DELETE FROM users WHERE users.MarkedForRemoval = true;
 
+    DELETE FROM users u
+    WHERE u.MarkedForRemoval = true;
 -- Updating the interface
     -- PERSONALIZED SUGGESTIONS DOESNT HAVE ANY DATA SO THIS CANT RUN
 

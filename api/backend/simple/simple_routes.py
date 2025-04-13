@@ -53,3 +53,20 @@ def hello():
 @simple_routes.route('/message')
 def mesage():
     return redirect(url_for(affirmation))
+# PERSONA 1 ROUTES
+# ------------------------------------------------------------
+@simple_routes.route('/fda/personalized_suggestions', methods = ['GET'])
+def get_personalized_suggestions():
+    return 
+# ------------------------------------------------------------
+@simple_routes.route('/complaints', methods = ['POST'])
+def get_personalized_suggestions():
+    return 
+# ------------------------------------------------------------
+@simple_routes.route('/fda/personalized_suggestions/ presets', methods = ['PUT'])
+def save_preset():
+    return 
+# ------------------------------------------------------------
+@simple_routes.route('/users/subscription', methods = ['PUT'])
+def update_subscription():
+    return 

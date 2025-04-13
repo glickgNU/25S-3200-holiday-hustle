@@ -26,3 +26,40 @@ def get_all_fda():
     the_response.status_code = 200
     the_response.mimetype='application/json'
     return the_response
+
+
+# Gets all the suggestions from the system
+@fda.route('/FoodDecorationsActivities/suggestions', methods=['GET'])
+
+def get_all_suggestions():
+
+    cursor = db.get_db().cursor()
+    the_query = '''
+    SELECT SuggestionID, Allergies, GroupSize, AppID, Popularity, Audience
+    FROM personalizedSuggestions
+    '''
+    cursor.execute(the_query)
+    theData = cursor.fetchall()
+    the_response = make_response(theData)
+    the_response.status_code = 200
+    the_response.mimetype='application/json'
+    return the_response
+
+
+
+# Gets 
+@fda.route('/FoodDecorationsActivities', methods=['GET'])
+
+def get_all_suggestions_FDA():
+
+    cursor = db.get_db().cursor()
+    the_query = '''
+    SELECT SuggestionID , FDAID
+    FROM suggestions_FDA
+    '''
+    cursor.execute(the_query)
+    theData = cursor.fetchall()
+    the_response = make_response(theData)
+    the_response.status_code = 200
+    the_response.mimetype='application/json'
+    return the_response

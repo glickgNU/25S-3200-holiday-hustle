@@ -8,16 +8,17 @@ from backend.ml_models.model01 import predict
 
 # Create a new Blueprint object, which is a collection of 
 # routes.
-users = Blueprint('users', __name__)
+inputs = Blueprint('personalized_suggestions', __name__)
 
 # Get all employees from the system
-@users.route('/users', methods=['GET'])
+@inputs.route('/inputs', methods=['GET'])
 
-def get_all_users():
+def get_all_inputs():
 
     cursor = db.get_db().cursor()
-    the_query = '''SELECT UserID,
-    Name, LastSeen, MarkedForRemoval FROM users
+    the_query = '''
+    SELECT AppID, Popularity, InputID
+    FROM inputs
     '''
     cursor.execute(the_query)
     theData = cursor.fetchall()
@@ -26,17 +27,19 @@ def get_all_users():
     the_response.mimetype='application/json'
     return the_response
 
+@inputs.route('/inputs/restrictions', methods=['GET'])
 
-@users.route('/users/delete', methods=['DELETE'])
+def get_inputs_restrictions(allergies, groupSize, popularity):
 
-def remove_users():
     cursor = db.get_db().cursor()
-    the_query = '''UPDATE users u JOIN accounts a on u.UserID = a.UserID
-    SET u.MarkedForRemoval = TRUE
-    WHERE u.LastSeen < DATE_SUB(NOW(), INTERVAL 3 YEAR);
-    SELECT * FROM users WHERE users.MarkedForRemoval = TRUE;
-    DELETE FROM users u
-    WHERE u.MarkedForRemoval = true;
+    the_query = f'''
+    SELECT DISTINCT ps.SuggestionID
+    FROM  inputs i JOIN apps a on i.AppID = a.AppID
+    JOIN personalizedSuggestions ps on a.AppID = ps.AppID
+    WHERE ps.Allergies = {str(allergies)}
+    AND ps.GroupSize = {groupSize}
+    AND ps.Popularity  > {popularity - 2}
+    AND ps.Popularity <  {popularity + 2};
     '''
     cursor.execute(the_query)
     theData = cursor.fetchall()
@@ -44,5 +47,4 @@ def remove_users():
     the_response.status_code = 200
     the_response.mimetype='application/json'
     return the_response
-
 

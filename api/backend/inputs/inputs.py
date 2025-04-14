@@ -48,3 +48,46 @@ def get_inputs_restrictions(allergies, groupSize, popularity):
     the_response.mimetype='application/json'
     return the_response
 
+@inputs.route('/inputs', methods=['GET'])
+def get_made_input():
+    cursor = db.get_db().cursor()
+    query = '''
+   SELECT DISTINCT ps.SuggestionID
+   FROM  inputs i JOIN apps a on i.AppID = a.AppID
+   JOIN personalizedSuggestions ps on a.AppID = ps.AppID;
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+@inputs.route('/inputs/history', methods=['GET'])
+def get_persons_input():
+    cursor = db.get_db().cursor()
+    query = '''
+   SELECT DISTINCT ih.InputID
+   FROM inputs i JOIN inputHistory ih on i.InputID = ih.inputID;
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+@inputs.route('/inputs/history', methods=['DELETE'])
+def delete_inputs():
+    cursor = db.get_db().cursor()
+    query = '''DELETE inputHistory
+FROM inputHistory
+   WHERE inputHistory.MarkedForRemoval = true;'''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+

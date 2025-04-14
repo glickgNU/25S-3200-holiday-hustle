@@ -45,4 +45,87 @@ def remove_users():
     the_response.mimetype='application/json'
     return the_response
 
+@simple_routes.route('/users/subscription', methods = ['PUT'])
+def update_subscription():
+    current_app.logger.info('PUT /users/subscription route')
+    user_info = request.json
+    acc_id = user_info['AccountID']
+    user_id = user_id['UserID']
+    is_free = user_info['Free']
+    is_pro = user_info['Pro']
 
+    query = '''
+            UPDATE subscription s
+            JOIN accounts a ON s.AccountID = a.AccountID
+            SET s.Pro = %s, s.Free = %s
+            WHERE a.AccountID = %s AND a.UserID = %s
+            '''
+    data = (acc_id, user_id, is_free, is_pro)
+    cursor = db.get_db().cursor()
+    r = cursor.execute(query, data)
+    db.get_db().commit()
+    return 'subscription updated!'
+
+    @simple_routes.route('/users', methods=['DELETE'])
+def remove_users():
+    current_app.logger.info('DELETE /users route')
+    cursor = db.get_db().cursor()
+
+    delete_query = '''
+                DELETE u FROM users u
+                JOIN accounts a ON u.UserID = a.UserID
+                WHERE u.LastSeen < DATE_SUB(NOW(), INTERVAL 3 YEAR);
+                '''
+    cursor.execute(delete_query)
+    db.get_db().commit()
+    response = make_response(jsonify({"inactive users removed."}))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+    @simple_routes.route('/user/subscription', methods=['POST'])
+def add_monetization():
+    current_app.logger.info('POST /user/subscription route')
+    subscription_info = request.json
+    pro_subscription = subscription_info['pro']
+    free_subscription = subscription_info['free']
+    account_id = subscription_info['account_id']
+    cursor = db.get_db().cursor()
+
+    post_query = '''
+                INSERT INTO subscription (Pro, Free, AccountID)
+                VALUES (%s, %s, %s);
+                '''
+    cursor.execute(post_query, (pro_subscription, free_subscription, account_id))
+    db.get_db().commit()
+    response = make_response(jsonify({
+        "message": "Subscription added successfully!",
+        "pro_subscription": pro_subscription,
+        "free_subscription": free_subscription,
+        "account_id": account_id
+    }))
+    response.status_code = 201
+    response.mimetype = 'application/json'
+    return response
+
+    @simple_routes.route('/users/complaints', methods=['GET'])
+def track_complaints():
+    current_app.logger.info('GET /users/complaints route')
+    cursor = db.get_db().cursor()
+
+    get_query = '''
+            SELECT complaints.ComplaintText, COUNT(*) AS Frequency
+            FROM complaints
+            GROUP BY complaints.ComplaintText
+            ORDER BY Frequency DESC;
+            '''
+    cursor.execute(get_query)
+    complaint_data = cursor.fetchall()
+
+    response = make_response(jsonify({
+        "message": "Most common complaints",
+        "complaints": complaint_data
+    }))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response

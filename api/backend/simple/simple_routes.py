@@ -122,32 +122,87 @@ def update_subscription():
 
 # PERSONA 3 ROUTES
 #-----------------------------------------------------------------
-
-@simple_routes.route('/analytics/top_suggestions', methods=['GET'])
-def top_suggestions():
- cursor = db.get_db().cursor()
+@simple_routes.route('/fda/holiday', methods=['GET'])
+def get_holiday_spending():
+    cursor = db.get_db().cursor()
     query = '''
-        SELECT s.SuggestionID, s.Popularity, f.Clicks, f.Dates, v.Color, v.Shape
-        FROM personalizedSuggestions s
-        LEFT JOIN SuggestionsFDA sf ON s.SuggestionID = sf.SuggestionID
-        LEFT JOIN foodDecoActivities f ON sf.FDAID = f.FDAID
-        LEFT JOIN visuals v ON s.SuggestionID = v.SuggestionID
-        ORDER BY s.Popularity DESC, f.Clicks DESC
+        SELECT h.Name AS HolidayName, AVG(f.Pricing) AS AvgSpending, SUM(f.Clicks) AS TotalClicks
+        FROM foodDecoActivities f
+        JOIN HolidayFDA hf ON f.FDAID = hf.FDAID
+        JOIN holidays h ON hf.HolidayID = h.HolidayID
+        GROUP BY h.Name
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+    
+#-----------------------------------------------------------------
+@simple_routes.route('/fda', methods=['GET'])
+def get_popular_fda():
+    cursor = db.get_db().cursor()
+    query = '''
+        SELECT f.FDAID, f.Popularity, f.Pricing, f.Dates, f.Clicks
+        FROM foodDecoActivities f
+        ORDER BY f.Popularity DESC, f.Clicks DESC
         LIMIT 10
     '''
     cursor.execute(query)
     data = cursor.fetchall()
     response = make_response(jsonify(data))
     response.status_code = 200
+    response.mimetype = 'application/json'
     return response
 
-#-----------------------------------------------------------------------
-@simple_routes.route('/analytics/export_dataset', methods=['GET'])
-def export_dataset():
+#-----------------------------------------------------------------
+@simple_routes.route('/fda/personalized_suggestions', methods=['GET'])
+def get_personalized_suggestions_analytics():
     cursor = db.get_db().cursor()
     query = '''
-        SELECT u.UserID, u.Name AS UserName, a.AppID, 
-               s.SuggestionID, s.Allergies, s.GroupSize, s.Popularity
+        SELECT s.GroupSize,
+               AVG(f.Pricing) AS AvgBudget,
+               CASE
+                   WHEN s.GroupSize <= 5 THEN 'Casual Host'
+                   ELSE 'Professional Planner'
+               END AS HostType,
+               AVG(f.Pricing) AS AvgSpending
+        FROM personalizedSuggestions s
+        JOIN SuggestionsFDA sf ON s.SuggestionID = sf.SuggestionID
+        JOIN foodDecoActivities f ON sf.FDAID = f.FDAID
+        GROUP BY s.GroupSize, HostType
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+#-----------------------------------------------------------------
+@simple_routes.route('/fda/personalized_suggestions/presets', methods=['GET'])
+def get_presets_monthly():
+    cursor = db.get_db().cursor()
+    query = '''
+        SELECT MONTH(p.Date) AS Month, COUNT(p.SuggestionID) AS TotalSuggestions
+        FROM presets p
+        GROUP BY MONTH(p.Date)
+        ORDER BY Month
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+#-----------------------------------------------------------------
+@simple_routes.route('/fda/personalized_suggestions/export', methods=['GET'])
+def export_user_selections():
+    cursor = db.get_db().cursor()
+    query = '''
+        SELECT u.UserID, u.Name AS UserName, a.AppID, s.SuggestionID, s.Allergies, s.GroupSize, s.Popularity
         FROM users u
         JOIN accounts ac ON u.UserID = ac.UserID
         JOIN apps a ON ac.AppID = a.AppID
@@ -157,27 +212,7 @@ def export_dataset():
     data = cursor.fetchall()
     response = make_response(jsonify(data))
     response.status_code = 200
-    return response
-#-----------------------------------------------------------------------
-@simple_routes.route('/analytics/spending_by_host_type', methods=['GET'])
-def spending_by_host_type():
-    cursor = db.get_db().cursor()
-    query = '''
-        SELECT 
-            CASE 
-                WHEN s.GroupSize <= 5 THEN 'Casual Host'
-                ELSE 'Professional Planner'
-            END AS HostType,
-            AVG(f.Pricing) AS AvgSpending
-        FROM personalizedSuggestions s
-        JOIN SuggestionsFDA sf ON s.SuggestionID = sf.SuggestionID
-        JOIN foodDecoActivities f ON sf.FDAID = f.FDAID
-        GROUP BY HostType
-    '''
-    cursor.execute(query)
-    data = cursor.fetchall()
-    response = make_response(jsonify(data))
-    response.status_code = 200
+    response.mimetype = 'application/json'
     return response
 #-----------------------------------------------------------------------
 

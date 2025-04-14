@@ -141,6 +141,46 @@ def top_suggestions():
     response.status_code = 200
     return response
 
+#-----------------------------------------------------------------------
+@simple_routes.route('/analytics/export_dataset', methods=['GET'])
+def export_dataset():
+    cursor = db.get_db().cursor()
+    query = '''
+        SELECT u.UserID, u.Name AS UserName, a.AppID, 
+               s.SuggestionID, s.Allergies, s.GroupSize, s.Popularity
+        FROM users u
+        JOIN accounts ac ON u.UserID = ac.UserID
+        JOIN apps a ON ac.AppID = a.AppID
+        JOIN personalizedSuggestions s ON s.AppID = a.AppID
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    return response
+#-----------------------------------------------------------------------
+@simple_routes.route('/analytics/spending_by_host_type', methods=['GET'])
+def spending_by_host_type():
+    cursor = db.get_db().cursor()
+    query = '''
+        SELECT 
+            CASE 
+                WHEN s.GroupSize <= 5 THEN 'Casual Host'
+                ELSE 'Professional Planner'
+            END AS HostType,
+            AVG(f.Pricing) AS AvgSpending
+        FROM personalizedSuggestions s
+        JOIN SuggestionsFDA sf ON s.SuggestionID = sf.SuggestionID
+        JOIN foodDecoActivities f ON sf.FDAID = f.FDAID
+        GROUP BY HostType
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    return response
+#-----------------------------------------------------------------------
+
 # PERSONA 4 ROUTES
 #-----------------------------------------------------------------
 @simple_routes.route('/users', methods=['DELETE'])

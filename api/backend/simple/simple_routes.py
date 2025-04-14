@@ -332,7 +332,7 @@ def remove_users():
     return response
 
 #-----------------------------------------------------------------------
-@simple_routes.route('/app/visuals', methods=['PUT'])
+@simple_routes.route('/fda/visuals', methods=['PUT'])
 def update_interface():
     current_app.logger.info('PUT /app/visuals route')
     visual_info = request.json

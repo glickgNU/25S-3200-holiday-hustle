@@ -46,9 +46,10 @@ def create_app():
     app.register_blueprint(employees,   url_prefix='/e')
     
 
-    app.register_blueprint(FoodDecorationsActivities,   url_prefix='/f')
+    app.register_blueprint(fda,   url_prefix='/f')
     app.register_blueprint(users,   url_prefix='/u')
     app.register_blueprint(inputs,  url_prefix='/i')
+    app.register_blueprint(fda_suggestions,  url_prefix='/s')
 
     # Don't forget to return the app object
     return app

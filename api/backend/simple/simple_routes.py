@@ -120,6 +120,102 @@ def update_subscription():
     db.get_db().commit()
     return 'subscription updated!'
 
+# PERSONA 2 ROUTES 
+#2.1-----------------------------------------------------------------
+@simple_routes.route('/inputs', methods=['GET'])
+def get_made_input():
+    cursor = db.get_db().cursor()
+    query = '''
+   SELECT DISTINCT ps.SuggestionID
+   FROM  inputs i JOIN apps a on i.AppID = a.AppID
+   JOIN personalizedSuggestions ps on a.AppID = ps.AppID;
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+#2.2-----------------------------------------------------------------
+@simple_routes.route('/inputs/history', methods=['GET'])
+def get_persons_input():
+    cursor = db.get_db().cursor()
+    query = '''
+   SELECT DISTINCT ih.InputID
+   FROM inputs i JOIN inputHistory ih on i.InputID = ih.inputID;
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+#2.3-----------------------------------------------------------------
+@simple_routes.route('/inputs/history', methods=['DELETE'])
+def delete_inputs():
+    cursor = db.get_db().cursor()
+    query = '''DELETE inputHistory
+FROM inputHistory
+   WHERE inputHistory.MarkedForRemoval = true;'''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+#2.4-----------------------------------------------------------------
+@simple_routes.route('/fda', methods=['GET'])
+def fda_price_range(price):
+    cursor = db.get_db().cursor()
+    query = f'''
+   SELECT fda.Pricing
+   FROM personalizedSuggestions ps JOIN foodDecoActivities fda on ps.SuggestionID = fda.SuggestionID
+   WHERE {price - 25} < fda.Pricing < {price + 25};
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+#2.5-----------------------------------------------------------------
+@simple_routes.route('/fda/personalized_suggestions', methods=['GET'])
+def given_suggestions_popular_fda(cut_off):
+    cursor = db.get_db().cursor()
+    query = f'''
+   SELECT *
+   FROM personalizedSuggestions ps JOIN foodDecoActivities f on ps.SuggestionID = f.SuggestionID
+   ORDER BY f.Popularity
+   LIMIT {cut_off};
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+#2.6-----------------------------------------------------------------
+@simple_routes.route('/fda/personalized_suggestions', methods=['GET'])
+def get_popular_personalized_suggestions(popularity_amount):
+    cursor = db.get_db().cursor()
+    query = f'''
+    SELECT ps.Popularity
+    FROM  personalizedSuggestions ps
+    ORDER BY  ps.Popularity
+    LIMIT {popularity_amount}; 
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
 # PERSONA 3 ROUTES
 #-----------------------------------------------------------------
 @simple_routes.route('/fda/holiday', methods=['GET'])

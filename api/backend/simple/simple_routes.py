@@ -124,22 +124,17 @@ def update_subscription():
 #-----------------------------------------------------------------
 @simple_routes.route('/users', methods=['DELETE'])
 def remove_users():
+    current_app.logger.info('DELETE /users route')
     cursor = db.get_db().cursor()
+
     delete_query = '''
-                UPDATE users u JOIN accounts on u.UserID = a.UserID
-                SET u.MarkedForRemoval = TRUE
-                WHERE u.LastSeen < DATE_SUB(NOW(), INTERVAL 3 YEARS);
-                SELECT * FROM users WHERE users.MarkedForRemoval = TRUE;
-
-                UPDATE users u JOIN accounts a on u.UserID = a.USERID
-                SET u.MarkedForRemoval = FALSE
-                WHERE u.UserID = 1;
-                DELETE FROM users  WHERE users.MarkedForRemoval = TRUE;
-
+                DELETE u FROM users u
+                JOIN accounts a ON u.UserID = a.UserID
+                WHERE u.LastSeen < DATE_SUB(NOW(), INTERVAL 3 YEAR);
                 '''
     cursor.execute(delete_query)
     db.get_db().commit()
-    response = make_response(jsonify({"message inactive users removed."}))
+    response = make_response(jsonify({"inactive users removed."}))
     response.status_code = 200
     response.mimetype = 'application/json'
     return response
@@ -154,21 +149,19 @@ def update_interface():
     shape = visual_info['shape']
     cursor = db.get_db().cursor()
 
-    put_query = '''
-                INSERT INTO visuals (VisualID, Color, Shape, IsWritable, Length, Width, SuggestionID)
-                VALUES (%s, %s, %s, %s, %s, %s, %s);
-                SELECT * FROM visuals;
-
+    update_query = '''
                 UPDATE visuals
                 SET Color = %s, Shape = %s
                 WHERE VisualID = %s;
-                DELETE FROM visuals WHERE VisualID = %s;
-
                 '''
-    cursor.execute(put_query, (color, shape, visual_id))
+    cursor.execute(update_query, (color, shape, visual_id))
     db.get_db().commit()
-
-    response = make_response(jsonify({"message": f"Visual {visual_id} updated to color {color} and shape {shape}."}))
+    response = make_response(jsonify({
+        "message": "Visual updated successfully!",
+        "visual_id": visual_id,
+        "new_color": color,
+        "new_shape": shape
+    }))
     response.status_code = 200
     response.mimetype = 'application/json'
     return response
@@ -176,8 +169,110 @@ def update_interface():
 #-----------------------------------------------------------------------
 @simple_routes.route('/fda/personalized_suggestions/presets', methods=['POST'])
 def add_searches():
-    
+    current_app.logger.info('POST /fda/personalized_suggestions/presets route')
+    search_info = request.json
+    field_name = search_info['field']
+    search_type = search_info['type']
+    suggestion_id = search_info['suggestion_id']
+    user_id = search_info['user_id']  
+    cursor = db.get_db().cursor()
 
+    post_query = '''
+                INSERT INTO presets (DATE, NAME, USERID, SUGGESTIONID)
+                VALUES (NOW(), %s, %s, %s);
+                '''
+    cursor.execute(post_query, (field_name, user_id, suggestion_id))
+    db.get_db().commit()
+    response = make_response(jsonify({
+        "message": "Search preset added successfully!",
+        "field": field_name,
+        "type": search_type,
+        "suggestion_id": suggestion_id
+    }))
+    response.status_code = 201
+    response.mimetype = 'application/json'
+    return response
 
+#------------------------------------------------------------------------
+@simple_routes.route('/user/subscription', methods=['POST'])
+def add_monetization():
+    current_app.logger.info('POST /user/subscription route')
+    subscription_info = request.json
+    pro_subscription = subscription_info['pro']
+    free_subscription = subscription_info['free']
+    account_id = subscription_info['account_id']
+    cursor = db.get_db().cursor()
 
-    
+    post_query = '''
+                INSERT INTO subscription (Pro, Free, AccountID)
+                VALUES (%s, %s, %s);
+                '''
+    cursor.execute(post_query, (pro_subscription, free_subscription, account_id))
+    db.get_db().commit()
+    response = make_response(jsonify({
+        "message": "Subscription added successfully!",
+        "pro_subscription": pro_subscription,
+        "free_subscription": free_subscription,
+        "account_id": account_id
+    }))
+    response.status_code = 201
+    response.mimetype = 'application/json'
+    return response
+
+#------------------------------------------------------------------------
+@simple_routes.route('/fda', methods=['POST'])
+def display_events():
+    current_app.logger.info('POST /fda route')
+    event_info = request.json
+    popularity = event_info['popularity']
+    pricing = event_info['pricing']
+    clicks = event_info['clicks']
+    suggestion_id = event_info['suggestion_id']
+    holiday_id = event_info['holiday_id']
+    cursor = db.get_db().cursor()
+
+    post_query = '''
+                INSERT INTO foodDecoActivities (Popularity, Pricing, Dates, Clicks, SuggestionID, HolidayID)
+                VALUES (%s, %s, NOW(), %s, %s, %s);
+                '''
+    cursor.execute(post_query, (popularity, pricing, clicks, suggestion_id, holiday_id))
+    db.get_db().commit()
+
+    select_query = '''
+                SELECT * FROM foodDecoActivities
+                ORDER BY Popularity DESC
+                LIMIT 5;
+                '''
+    cursor.execute(select_query)
+    top_events = cursor.fetchall()
+    response = make_response(jsonify({
+        "message": "Popular events",
+        "top_events": top_events
+    }))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+#---------------------------------------------------------------------
+@simple_routes.route('/users/complaints', methods=['GET'])
+def track_complaints():
+    current_app.logger.info('GET /users/complaints route')
+    cursor = db.get_db().cursor()
+
+    get_query = '''
+            SELECT complaints.ComplaintText, COUNT(*) AS Frequency
+            FROM complaints
+            GROUP BY complaints.ComplaintText
+            ORDER BY Frequency DESC;
+            '''
+    cursor.execute(get_query)
+    complaint_data = cursor.fetchall()
+
+    response = make_response(jsonify({
+        "message": "Most common complaints",
+        "complaints": complaint_data
+    }))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+#-----------------------------------------------------------------------

@@ -120,6 +120,27 @@ def update_subscription():
     db.get_db().commit()
     return 'subscription updated!'
 
+# PERSONA 3 ROUTES
+#-----------------------------------------------------------------
+
+@simple_routes.route('/analytics/top_suggestions', methods=['GET'])
+def top_suggestions():
+ cursor = db.get_db().cursor()
+    query = '''
+        SELECT s.SuggestionID, s.Popularity, f.Clicks, f.Dates, v.Color, v.Shape
+        FROM personalizedSuggestions s
+        LEFT JOIN SuggestionsFDA sf ON s.SuggestionID = sf.SuggestionID
+        LEFT JOIN foodDecoActivities f ON sf.FDAID = f.FDAID
+        LEFT JOIN visuals v ON s.SuggestionID = v.SuggestionID
+        ORDER BY s.Popularity DESC, f.Clicks DESC
+        LIMIT 10
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    return response
+
 # PERSONA 4 ROUTES
 #-----------------------------------------------------------------
 @simple_routes.route('/users', methods=['DELETE'])

@@ -45,7 +45,7 @@ def remove_users():
     the_response.mimetype='application/json'
     return the_response
 
-@simple_routes.route('/users/subscription', methods = ['PUT'])
+@users.route('/users/subscription', methods = ['PUT'])
 def update_subscription():
     current_app.logger.info('PUT /users/subscription route')
     user_info = request.json
@@ -66,7 +66,7 @@ def update_subscription():
     db.get_db().commit()
     return 'subscription updated!'
 
-    @simple_routes.route('/users', methods=['DELETE'])
+@users.route('/users', methods=['DELETE'])
 def remove_users():
     current_app.logger.info('DELETE /users route')
     cursor = db.get_db().cursor()
@@ -83,7 +83,7 @@ def remove_users():
     response.mimetype = 'application/json'
     return response
 
-    @simple_routes.route('/user/subscription', methods=['POST'])
+@users.route('/user/subscription', methods=['POST'])
 def add_monetization():
     current_app.logger.info('POST /user/subscription route')
     subscription_info = request.json
@@ -108,7 +108,7 @@ def add_monetization():
     response.mimetype = 'application/json'
     return response
 
-    @simple_routes.route('/users/complaints', methods=['GET'])
+@users.route('/users/complaints', methods=['GET'])
 def track_complaints():
     current_app.logger.info('GET /users/complaints route')
     cursor = db.get_db().cursor()

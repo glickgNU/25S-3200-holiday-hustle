@@ -99,3 +99,65 @@ def update_subscription():
     r = cursor.execute(query, data)
     db.get_db().commit()
     return 'subscription updated!'
+
+# PERSONA 4 ROUTES
+#-----------------------------------------------------------------
+@simple_routes.route('/users', methods=['DELETE'])
+def remove_users():
+    cursor = db.get_db().cursor()
+    delete_query = '''
+                UPDATE users u JOIN accounts on u.UserID = a.UserID
+                SET u.MarkedForRemoval = TRUE
+                WHERE u.LastSeen < DATE_SUB(NOW(), INTERVAL 3 YEARS);
+                SELECT * FROM users WHERE users.MarkedForRemoval = TRUE;
+
+                UPDATE users u JOIN accounts a on u.UserID = a.USERID
+                SET u.MarkedForRemoval = FALSE
+                WHERE u.UserID = 1;
+                DELETE FROM users  WHERE users.MarkedForRemoval = TRUE;
+
+                '''
+    cursor.execute(delete_query)
+    db.get_db().commit()
+    response = make_response(jsonify({"message inactive users removed."}))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+#-----------------------------------------------------------------------
+@simple_routes.route('/app/visuals', methods=['PUT'])
+def update_interface():
+    current_app.logger.info('PUT /app/visuals route')
+    visual_info = request.json
+    visual_id = visual_info['id']
+    color = visual_info['color']
+    shape = visual_info['shape']
+    cursor = db.get_db().cursor()
+
+    put_query = '''
+                INSERT INTO visuals (VisualID, Color, Shape, IsWritable, Length, Width, SuggestionID)
+                VALUES (%s, %s, %s, %s, %s, %s, %s);
+                SELECT * FROM visuals;
+
+                UPDATE visuals
+                SET Color = %s, Shape = %s
+                WHERE VisualID = %s;
+                DELETE FROM visuals WHERE VisualID = %s;
+
+                '''
+    cursor.execute(put_query, (color, shape, visual_id))
+    db.get_db().commit()
+
+    response = make_response(jsonify({"message": f"Visual {visual_id} updated to color {color} and shape {shape}."}))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response
+
+#-----------------------------------------------------------------------
+@simple_routes.route('/fda/personalized_suggestions/presets', methods=['POST'])
+def add_searches():
+    
+
+
+
+    

@@ -77,24 +77,44 @@ def get_personalized_suggestions():
 def create_complaint():
     return 
 # ------------------------------------------------------------
-@simple_routes.route('/fda/personalized_suggestions/ presets', methods = ['PUT'])
+@simple_routes.route('/fda/personalized_suggestions/presets', methods = ['PUT'])
 def save_preset():
-    return 
+    current_app.logger.info('PUT /fda/personalized_suggestions/presets route')
+    info = request.json
+    preset_id = info['PresetID']
+    name = info['Name']
+    date = info['Date']
+    user_id = info['UserID']
+    suggestion_id = info['SuggestionID']
+
+    query = '''
+            UPDATE presets p
+            JOIN personalizedSuggestions ps ON p.SuggestionID = ps.SuggestionID
+            SET ps.GroupSize = %s
+            WHERE p.PresetID = %s AND p.UserID = %s
+            '''
+    data = (name,date, user_id, suggestion_id, preset_id)
+    cursor = db.get_db().cursor()
+    r = cursor.execute(query, data)
+    db.get_db().commit()
+    return 'preset saved!'
 # ------------------------------------------------------------
 @simple_routes.route('/users/subscription', methods = ['PUT'])
 def update_subscription():
     current_app.logger.info('PUT /users/subscription route')
     user_info = request.json
-    user_id = user_info['id']
-    sub = user_info['subscription']
+    acc_id = user_info['AccountID']
+    user_id = user_id['UserID']
+    is_free = user_info['Free']
+    is_pro = user_info['Pro']
 
     query = '''
-            UPDATE subscription s 
-            JOIN accounts a ON s.AccountID = a.AccountID 
-            SET s.Pro = TRUE, s.Free = FALSE
+            UPDATE subscription s
+            JOIN accounts a ON s.AccountID = a.AccountID
+            SET s.Pro = %s, s.Free = %s
             WHERE a.AccountID = %s AND a.UserID = %s
             '''
-    data = (sub, user_id)
+    data = (acc_id, user_id, is_free, is_pro)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
     db.get_db().commit()

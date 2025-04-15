@@ -104,7 +104,7 @@ def add_monetization():
         "free_subscription": free_subscription,
         "account_id": account_id
     }))
-    response.status_code = 201
+    response.status_code = 200
     response.mimetype = 'application/json'
     return response
 

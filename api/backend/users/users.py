@@ -129,3 +129,25 @@ def track_complaints():
     response.status_code = 200
     response.mimetype = 'application/json'
     return response
+
+@users.route('/users/complaints', methods = ['POST'])
+def create_complaint():
+    current_app.logger.info('POST /users/complaints route')
+    info = request.json
+    txt = info['ComplaintText']
+    user_id = info['UserID']
+    app_ID = info['AppID']
+    id = info['ComplaintID']
+    query = '''
+    INSERT INTO complaints
+    VALUES (%s, %s, %s, %s);
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (txt,user_id ,app_ID ,id))
+    db.get_db().commit()
+    response = make_response(jsonify({
+        "message": "Complaint added succesfully"
+    }))
+    response.status_code = 200
+    response.mimetype = 'application/json'
+    return response

@@ -73,9 +73,27 @@ def get_personalized_suggestions():
     return the_response
 
 # ------------------------------------------------------------
-@simple_routes.route('/complaints', methods = ['POST'])
+@simple_routes.route('/users/complaints', methods = ['POST'])
 def create_complaint():
-    return 
+    current_app.logger.info('POST /users/complaints route')
+    info = request.json
+    txt = info['ComplaintText']
+    user_id = info['UserID']
+    app_ID = info['AppID']
+    id = info['ComplaintID']
+    query = '''
+    INSERT INTO complaints
+    VALUES (%s, %s, %s, %s);
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (txt,user_id ,app_ID ,id))
+    db.get_db().commit()
+    response = make_response(jsonify({
+        "message": "Complaint added succesfully"
+    }))
+    response.status_code = 201
+    response.mimetype = 'application/json'
+    return response
 # ------------------------------------------------------------
 @simple_routes.route('/fda/personalized_suggestions/presets', methods = ['PUT'])
 def save_preset():
@@ -91,7 +109,7 @@ def save_preset():
             UPDATE presets p
             JOIN personalizedSuggestions ps ON p.SuggestionID = ps.SuggestionID
             SET ps.GroupSize = %s
-            WHERE p.PresetID = %s AND p.UserID = %s
+            WHERE p.PresetID = %s AND p.UserID = %s;
             '''
     data = (name,date, user_id, suggestion_id, preset_id)
     cursor = db.get_db().cursor()
@@ -112,7 +130,7 @@ def update_subscription():
             UPDATE subscription s
             JOIN accounts a ON s.AccountID = a.AccountID
             SET s.Pro = %s, s.Free = %s
-            WHERE a.AccountID = %s AND a.UserID = %s
+            WHERE a.AccountID = %s AND a.UserID = %s;
             '''
     data = (acc_id, user_id, is_free, is_pro)
     cursor = db.get_db().cursor()

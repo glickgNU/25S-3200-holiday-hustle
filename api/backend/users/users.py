@@ -120,7 +120,7 @@ def track_complaints():
             ORDER BY Frequency DESC;
             '''
     cursor.execute(get_query)
-    complaint_data = cursor.fetchall()
+    complaint_data = cursor.fetchall() 
 
     response = make_response(jsonify({
         "message": "Most common complaints",

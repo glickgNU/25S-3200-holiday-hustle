@@ -7,6 +7,7 @@ import world_bank_data as wb
 import matplotlib.pyplot as plt
 import numpy as np
 import plotly.express as px
+import requests
 from modules.nav import SideBarLinks
 
 # Call the SideBarLinks from the nav module in the modules directory
@@ -15,6 +16,7 @@ SideBarLinks()
 # set the header of the page
 st.header('Specialized Search Page')
 
+preview_what = ""
 
 # Define the data for the table
 data = {
@@ -30,3 +32,22 @@ df = pd.DataFrame(data)
 st.title("Event Insights Table")
 st.table(df)
 
+
+if st.button("Preview Most Popular Items" ,type='primary',
+             use_container_width=True):
+        preview_what = "Most_Popular_Items"
+
+if st.button("Preview Most Popular Suggestions" ,type='primary',
+             use_container_width=True):
+        preview_what = "Most_Popular_Suggestions"
+
+if st.button("Preview Most Food, Decorations, Activities" ,type='primary',
+             use_container_width=True):
+        preview_what = "Most_Food_Decorations_Activities"
+        
+
+# Press to send the complaint
+if st.button("Get most popular items, suggestions, food, decorations, and activities" ,type='primary',
+             use_container_width=True):
+             results = requests.get(f'http://api:4000/f/fda/personal_suggestions/{preview_what}').json()
+             st.dataframe(results)

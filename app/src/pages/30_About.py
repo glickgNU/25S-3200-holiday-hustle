@@ -13,5 +13,7 @@ st.markdown (
     app appealing to both experienced event planners, and people who may have no experience
     with event planning. We help with all types of holiday planning ranging from large holidays 
     such as Christmas all the way to minor holidays such as President's Day!
+
+    🎃🎄🦃🍎🐰🍀❤️☃️
     """
         )

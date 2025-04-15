@@ -18,6 +18,44 @@ st.header('Suggestions Page')
 
 # inputs
 #
-#
-#
-#
+
+
+# Create a button
+if st.button("Allergies"):
+
+    selected_options = st.multiselect(
+        "Choose your allergies:",
+        ["Tree Nuts", "Peanuts", "Dairy", "Gluten", "Soy", "Almonds"]
+    )
+    # Display the selected items
+    if selected_options:
+        st.write("You selected:", selected_options)
+
+
+# Create a text input box
+user_input = st.text_input("Group size:", "Type in your group size")
+
+# Display the input value
+if user_input:
+    st.write("You entered:", user_input)
+else:
+    st.write("What's your group size?")
+
+# Create a button
+if st.button("Audience"):
+
+    selected_options = st.multiselect(
+        "Choose your allergies:",
+        ["Adults", "Children", "Men", "Women", "Older people", "People w/ pets", "Food lovers", "Fashion Lovers"]
+    )
+    # Display the selected items
+    if selected_options:
+        st.write("You selected:", selected_options)
+
+
+list_of_associated_suggestions = []
+st.write("Here is your list:")
+for item in list_of_associated_suggestions:
+    st.write(f"- {item}")
+
+

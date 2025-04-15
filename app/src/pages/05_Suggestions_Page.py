@@ -59,7 +59,7 @@ st.write("Here is your list:")
 for item in list_of_associated_suggestions:
     st.write(f"- {item}")
 
-if st.button("These are suggestions based on your prefrences: ", type='primary',
+if st.button("These are suggestions based on your preferences: ", type='primary',
              use_container_width=True):
              results = requests.get(f'http://api:4000/f/fda/personal_suggestions/{user_input}/{selected_options}/{list_of_associated_suggestions}').json()
              st.dataframe(results)

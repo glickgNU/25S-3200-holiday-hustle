@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import plotly.express as px
 from modules.nav import SideBarLinks
-
+import requests 
 
 file_path_add_complaint = '''C:api\backend\users\users\complaints.py'''
 # Call the SideBarLinks from the nav module in the modules directory
@@ -30,8 +30,12 @@ common_complaints = st.multiselect()
 
 
 # Press to send the complaint
-if st.button("Send complaint to app"):
-    st.write("You selected:", common_complaints)
-    print(f"Sending selected options: {common_complaints}")
-    st.write("You wrote:", complaint_input)
-    print(f"Sending input: {complaint_input}")
+if st.button("Send complaint to app" ,type='primary',
+             use_container_width=True):
+             results = requests.get(f'http://api:4000/u/users/complaints{complaint_input}/{common_complaints}').json()
+             st.dataframe(results)
+             print(f"Sending selected options: {common_complaints}")
+             st.write("You wrote:", complaint_input)
+             print(f"Sending input: {complaint_input}")
+
+             

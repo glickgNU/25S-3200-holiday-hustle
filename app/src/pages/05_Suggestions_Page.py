@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import plotly.express as px
 from modules.nav import SideBarLinks
-
+import requests
 # Call the SideBarLinks from the nav module in the modules directory
 SideBarLinks()
 
@@ -58,5 +58,10 @@ list_of_associated_suggestions = []
 st.write("Here is your list:")
 for item in list_of_associated_suggestions:
     st.write(f"- {item}")
+
+if st.button("These are suggestions based on your prefrences: ", type='primary',
+             use_container_width=True):
+             results = requests.get(f'http://api:4000/f/fda/personal_suggestions/{user_input}').json()
+             st.dataframe(results)
 
 

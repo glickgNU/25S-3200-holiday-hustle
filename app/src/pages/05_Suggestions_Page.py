@@ -20,7 +20,7 @@ st.header('Suggestions Page')
 # inputs
 #
 
-
+selected_options = []
 # Create a button
 if st.button("Allergies"):
 

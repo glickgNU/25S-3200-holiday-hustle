@@ -4,8 +4,8 @@ from backend.db_connection import db
 from backend.products.products_routes import products
 from backend.simple.simple_routes import simple_routes
 from backend.users.users import users
-from backend.fda.fda import fda
-from backend.fda_personalised_suggestions.fda_suggestions import fda_suggestions
+from backend.fda.fda import employees
+from backend.fda_personalised_suggestions import fda_suggestions
 from backend.inputs.inputs import inputs
 
 import os
@@ -33,7 +33,7 @@ def create_app():
     app.config['MYSQL_DATABASE_PASSWORD'] = os.getenv('MYSQL_ROOT_PASSWORD').strip()
     app.config['MYSQL_DATABASE_HOST'] = os.getenv('DB_HOST').strip()
     app.config['MYSQL_DATABASE_PORT'] = int(os.getenv('DB_PORT').strip())
-    app.config['MYSQL_DATABASE_HOLIDAY_HUSTLE'] = os.getenv('HOLIDAY_HUSTLE').strip()  # Change this to your DB name
+    app.config['MYSQL_DATABASE_HOLIDAY_HUSTLE'] = 'HOLIDAY_HUSTLE'  # Change this to your DB name
 
     # Initialize the database object with the settings above. 
     app.logger.info('current_app(): starting the database connection')
@@ -45,7 +45,7 @@ def create_app():
     app.logger.info('current_app(): registering blueprints with Flask app object.')   
     app.register_blueprint(simple_routes)
 
-    app.register_blueprint(fda,   url_prefix='/f')
+    app.register_blueprint(employees,   url_prefix='/f')
     app.register_blueprint(users,   url_prefix='/u')
     app.register_blueprint(inputs,  url_prefix='/i')
     app.register_blueprint(fda_suggestions,  url_prefix='/s')

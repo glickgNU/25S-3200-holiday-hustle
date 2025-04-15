@@ -91,7 +91,7 @@ def create_complaint():
     response = make_response(jsonify({
         "message": "Complaint added succesfully"
     }))
-    response.status_code = 200
+    response.status_code = 201
     response.mimetype = 'application/json'
     return response
 # ------------------------------------------------------------
@@ -427,7 +427,7 @@ def add_searches():
         "type": search_type,
         "suggestion_id": suggestion_id
     }))
-    response.status_code = 200
+    response.status_code = 201
     response.mimetype = 'application/json'
     return response
 
@@ -453,7 +453,7 @@ def add_monetization():
         "free_subscription": free_subscription,
         "account_id": account_id
     }))
-    response.status_code = 200
+    response.status_code = 201
     response.mimetype = 'application/json'
     return response
 

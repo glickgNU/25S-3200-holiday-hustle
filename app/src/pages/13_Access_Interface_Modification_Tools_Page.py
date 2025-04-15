@@ -14,3 +14,13 @@ SideBarLinks()
 
 # set the header of the page
 st.header('Access Interface Modification Tools Page')
+
+if st.button("Get Available Interface Tools"):
+    response = requests.get('http://api:4000/fda/interface_tools')
+
+    if response.status_code == 200:
+        st.write('')
+        st.write("Interface tools successfully retrieved.")
+    else:
+        st.write('')
+        st.write("Failed to retrieve tools.")

@@ -14,3 +14,22 @@ SideBarLinks()
 
 # set the header of the page
 st.header('Make Complaint Page')
+
+
+# Create a complaint here
+complaint_input = st.text_input("Write your complaint here:")
+
+
+# Create a multiple selection box
+common_complaints = st.multiselect()
+"Choose as many complaints:",
+["Too many adds", "Too laggy", "Not enough suggestions", "Suggestions are not helpful enough", "too difficult to narrow search"]
+
+
+
+# Press to send the complaint
+if st.button("Send complaint to app"):
+    st.write("You selected:", common_complaints)
+    print(f"Sending selected options: {common_complaints}")
+    st.write("You wrote:", complaint_input)
+    print(f"Sending input: {complaint_input}")

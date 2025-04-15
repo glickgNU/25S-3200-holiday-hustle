@@ -14,3 +14,10 @@ SideBarLinks()
 
 # set the header of the page
 st.header('Subscription Page')
+
+sub_type = st.radio('Choose a pro or free subscription: ', ("Free", "Pro"))
+
+if st.button("Subscription change complete"):
+  st.write("You selected: ", sub_type)
+
+

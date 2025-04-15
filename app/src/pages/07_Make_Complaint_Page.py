@@ -21,9 +21,9 @@ st.header('Make Complaint Page')
 complaint_input = st.text_input("Your Complaint: ")
 
 # Create a multiple selection box
-common_complaints = st.multiselect()
+common_complaints = st.multiselect(
 "Choose as many complaints:",
-["Too many adds", "Too laggy", "Not enough suggestions", "Suggestions are not helpful enough", "too difficult to narrow search"]
+["Too many adds", "Too laggy", "Not enough suggestions", "Suggestions are not helpful enough", "too difficult to narrow search"])
 
 
 

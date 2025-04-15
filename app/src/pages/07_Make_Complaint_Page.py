@@ -9,6 +9,8 @@ import numpy as np
 import plotly.express as px
 from modules.nav import SideBarLinks
 
+
+file_path_add_complaint = '''C:api\backend\users\users\complaints.py'''
 # Call the SideBarLinks from the nav module in the modules directory
 SideBarLinks()
 
@@ -17,7 +19,7 @@ st.header('Make Complaint Page')
 
 
 # Create a complaint here
-complaint_input = st.text_input("Write your complaint here:")
+complaint_input = st.text_input(file_path_add_complaint)
 
 
 # Create a multiple selection box

@@ -16,6 +16,7 @@ SideBarLinks()
 st.header('Suggestions Page')
 
 
+
 # inputs
 #
 

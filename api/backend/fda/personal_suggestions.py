@@ -8,11 +8,11 @@ from backend.ml_models.model01 import predict
 
 # Create a new Blueprint object, which is a collection of 
 # routes.
-fda_personal_suggestions = Blueprint('fda_personal_suggestions', __name__)
+personal_suggestions = Blueprint('personal_suggestions', __name__)
 
-@fda_personal_suggestions.route('/fda/personalized_suggestions/presets', methods = ['PUT'])
+@personal_suggestions.route('/fda/personal_suggestions/presets', methods = ['PUT'])
 def save_preset():
-    current_app.logger.info('PUT /fda/personalized_suggestions/presets route')
+    current_app.logger.info('PUT /fda/personal_suggestions/presets route')
     info = request.json
     preset_id = info['PresetID']
     name = info['Name']
@@ -32,7 +32,7 @@ def save_preset():
     db.get_db().commit()
     return 'preset saved!'
   
-@fda_personal_suggestions.route('/fda/personalized_suggestions', methods=['GET'])
+@personal_suggestions.route('/fda/personal_suggestions', methods=['GET'])
 def given_suggestions_popular_fda(cut_off):
     cursor = db.get_db().cursor()
     query = f'''
@@ -48,7 +48,7 @@ def given_suggestions_popular_fda(cut_off):
     response.mimetype = 'application/json'
     return response
 
-@fda_personal_suggestions.route('/fda/personalized_suggestions', methods=['GET'])
+@personal_suggestions.route('/fda/personal_suggestions', methods=['GET'])
 def get_popular_personalized_suggestions(popularity_amount):
     cursor = db.get_db().cursor()
     query = f'''
@@ -64,7 +64,7 @@ def get_popular_personalized_suggestions(popularity_amount):
     response.mimetype = 'application/json'
     return response
 
-@fda_personal_suggestions.route('/fda/personalized_suggestions', methods=['GET'])
+@personal_suggestions.route('/fda/personal_suggestions', methods=['GET'])
 def get_personalized_suggestions_analytics():
     cursor = db.get_db().cursor()
     query = '''
@@ -87,7 +87,7 @@ def get_personalized_suggestions_analytics():
     response.mimetype = 'application/json'
     return response
 
-@fda_personal_suggestions.route('/fda/personalized_suggestions/presets', methods=['GET'])
+@personal_suggestions.route('/fda/personal_suggestions/presets', methods=['GET'])
 def get_presets_monthly():
     cursor = db.get_db().cursor()
     query = '''
@@ -104,7 +104,7 @@ def get_presets_monthly():
     return response
 
 
-@fda_personal_suggestions.route('/fda/personalized_suggestions/export', methods=['GET'])
+@personal_suggestions.route('/fda/personal_suggestions/export', methods=['GET'])
 def export_user_selections():
     cursor = db.get_db().cursor()
     query = '''
@@ -121,9 +121,9 @@ def export_user_selections():
     response.mimetype = 'application/json'
     return response
 
-@fda_personal_suggestions.route('/fda/personalized_suggestions/presets', methods=['POST'])
+@personal_suggestions.route('/fda/personal_suggestions/presets', methods=['POST'])
 def add_searches():
-    current_app.logger.info('POST /fda/personalized_suggestions/presets route')
+    current_app.logger.info('POST /fda/personal_suggestions/presets route')
     search_info = request.json
     field_name = search_info['field']
     search_type = search_info['type']

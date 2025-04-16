@@ -57,7 +57,7 @@ def suggestionsHistoryPage():
     st.sidebar.page_link("pages/06_Suggestions_History_Page.py", label="Suggestions History Page", icon="💵")
 
 def specializedSearchPage():
-    st.sidebar.page_link("pages/08_Specialize_Search_Page.py", label="Specialized Search Page", icon="💵")
+    st.sidebar.page_link("pages/08_Specialized_Search_Page.py", label="Specialized Search Page", icon="💵")
 
 #### ------------------------ Examples for Role of data_analyst_user ------------------------
 def dataAnalystUser():

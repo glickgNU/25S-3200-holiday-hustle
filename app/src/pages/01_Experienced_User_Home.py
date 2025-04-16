@@ -27,4 +27,4 @@ if st.button('View Suggestions History Page',
 if st.button('View Specialized Search Page Page', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/08_Specialize_Search_Page.py')
+  st.switch_page('pages/08_Specialized_Search_Page.py')

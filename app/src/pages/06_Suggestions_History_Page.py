@@ -33,7 +33,7 @@ if st.button('View someones history',
 look_at_person = st.text_input("Whose inputs do you want to delete?")
 specific_input = st.text_input("Which input do you want to delete?")
 
-if st.button('View someones history', 
+if st.button('Delete the input', 
              type='primary',
              use_container_width=True):
     results = requests.get(f'http://api:4000/i/inputs/inputs/history/{look_at_person}/{specific_input}').json()

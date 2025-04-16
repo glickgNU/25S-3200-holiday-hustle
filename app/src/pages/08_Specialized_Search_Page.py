@@ -36,7 +36,7 @@ if st.button("Preview Most Food, Decorations, Activities" ,type='primary',
 # Press to send the complaint (Jason 6)
 if st.button("Get most popular items, suggestions, food, decorations, and activities" ,type='primary',
              use_container_width=True):
-             results = requests.get(f'http://api:4000/f/fda/personal_suggestions/{preview_what}').json()
+             results = requests.get(f'http://api:4000/f/fda/personal_suggestions/popular/{preview_what}').json()
              st.dataframe(results)
 
 

@@ -14,7 +14,6 @@ SideBarLinks()
 
 # set the header of the page
 st.header('View User Activity Page')
-
 # Add a button to fetch user activity
 if st.button('Get User Activity'):
     url = 'http://api:4000/users'

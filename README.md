@@ -1,13 +1,27 @@
-# Spring 2025 CS 3200 Project Template Repository
+# Spring 2025 CS 3200 Holiday Hustle App Repository
 
-This repo is a template for your semester project. It includes most of the infrastructure setup (containers), sample databases, and example UI pages. Explore it fully and ask questions!
+## About
+Holiday Hustle is an app designed to allow for users who many not have prior event planning experience to plan for holiday events.
 
-## Prerequisites
+# Created by
+- Sophia S
+- Gil G
+- Ugochi O
+- Brandon D
+## Prerequisites to use the repository
 
 - A GitHub Account
 - A terminal-based git client or GUI Git client such as GitHub Desktop or the Git plugin for VSCode.
 - VSCode with the Python Plugin
 - A distribution of Python running on your laptop. The distro supported by the course is Anaconda or Miniconda.
+
+# Secret Password (.env file)
+SECRET_KEY=someCrazyS3cR3T!Key.!
+DB_USER=root
+DB_HOST=db
+DB_PORT=3306
+DB_NAME=holidayHustle
+MYSQL_ROOT_PASSWORD=abc123
 
 ## Current Project Components
 
@@ -62,7 +76,7 @@ If you are not familiar with web app development, this code base might be confus
 
 In most applications, when a user logs in, they assume a particular role. For instance, when one logs in to a stock price prediction app, they may be a single investor, a portfolio manager, or a corporate executive (of a publicly traded company). Each of those _roles_ will likely present some similar features as well as some different features when compared to the other roles. So, how do you accomplish this in Streamlit? This is sometimes called Role-based Access Control, or **RBAC** for short.
 
-The code in this project demonstrates how to implement a simple RBAC system in Streamlit but without actually using user authentication (usernames and passwords). The Streamlit pages from the original template repo are split up among 3 roles - Political Strategist, USAID Worker, and a System Administrator role (this is used for any sort of system tasks such as re-training ML model, etc.). It also demonstrates how to deploy an ML model.
+The code in this project demonstrates how to implement a simple RBAC system in Streamlit but without actually using user authentication (usernames and passwords). The Streamlit pages from the original template repo are split up among 4 roles - Casual User, Experienced Event Planning User, a Data Analyst User, and a System Administrator role (this is used for any sort of system tasks such as re-training ML model, etc.). It also demonstrates how to deploy an ML model.
 
 Wrapping your head around this will take a little time and exploration of this code base. Some highlights are below.
 
@@ -72,7 +86,7 @@ Wrapping your head around this will take a little time and exploration of this c
 1. Then I created a new python module in `app/src/modules/nav.py`. When you look at the file, you will se that there are functions for basically each page of the application. The `st.sidebar.page_link(...)` adds a single link to the sidebar. We have a separate function for each page so that we can organize the links/pages by role.
 1. Next, check out the `app/src/Home.py` file. Notice that there are 3 buttons added to the page and when one is clicked, it redirects via `st.switch_page(...)` to that Roles Home page in `app/src/pages`. But before the redirect, I set a few different variables in the Streamlit `session_state` object to track role, first name of the user, and that the user is now authenticated.
 1. Notice near the top of `app/src/Home.py` and all other pages, there is a call to `SideBarLinks(...)` from the `app/src/nav.py` module. This is the function that will use the role set in `session_state` to determine what links to show the user in the sidebar.
-1. The pages are organized by Role. Pages that start with a `0` are related to the _Political Strategist_ role. Pages that start with a `1` are related to the _USAID worker_ role. And, pages that start with a `2` are related to The _System Administrator_ role.
+1. The pages are organized by Role. Pages that start with a `0` are related to the _Political Strategist_ role. Pages that start with a `1` are related to the _Casual User_ role. And, pages that start with a `2` are related to The _Experienced_ role.
 
 ## (VERY Optional) Adding an ML Model to your App
 

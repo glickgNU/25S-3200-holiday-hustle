@@ -48,7 +48,7 @@ def given_suggestions_popular_fda(cut_off):
     response.mimetype = 'application/json'
     return response
 
-@personal_suggestions.route('/fda/personal_suggestions', methods=['GET'])
+@personal_suggestions.route('/fda/personal_suggestions/popular', methods=['GET'])
 def get_popular_personalized_suggestions(popularity_amount):
     cursor = db.get_db().cursor()
     query = f'''

@@ -3,7 +3,6 @@ logger = logging.getLogger(__name__)
 import pandas as pd
 import streamlit as st
 from streamlit_extras.app_logo import add_logo
-import world_bank_data as wb
 import matplotlib.pyplot as plt
 import numpy as np
 import plotly.express as px
@@ -15,10 +14,9 @@ SideBarLinks()
 
 # set the header of the page
 st.header('View User Activity Page')
-
 # Add a button to fetch user activity
 if st.button('Get User Activity'):
-    url = 'http://api:4000/fda/user_activity'
+    url = 'http://api:4000/users'
 
     # Send a GET request 
     response = requests.get(url)

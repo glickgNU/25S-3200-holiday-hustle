@@ -27,4 +27,4 @@ if st.button('View User Complaints Page',
 if st.button('View Access Interface Modification Tools Page', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/13_View_Acces_Interface_Modification_Tools_Page.py')
+  st.switch_page('pages/13_View_Access_Interface_Modification_Tools_Page.py')

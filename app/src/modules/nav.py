@@ -72,6 +72,8 @@ def reportsPage():
 def downloadsReportsPage():
     st.sidebar.page_link("pages/10_Download_Reports_Page.py", label="Download Reports Page", icon="📈")
 
+def visualizeData():
+    st.sidebar.page_link("pages/14_Visualize_Data.py", label="Visualize Data", icon="📈")
 
 #### ------------------------ Examples for Role of system_administrator_user ------------------------
 def systemAdministratorUser():
@@ -154,6 +156,7 @@ def SideBarLinks(show_home=False):
             dataAnalystUser()
             reportsPage()
             downloadsReportsPage()
+            visualizeData()
         
               # If the user is an experienced event planner, give them access to a experienced event planner user pages
         if st.session_state["role"] == "system_admin":

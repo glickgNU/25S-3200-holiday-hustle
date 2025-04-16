@@ -108,9 +108,9 @@ def add_monetization():
     response.mimetype = 'application/json'
     return response
 
-@users.route('/users/complaints', methods=['GET'])
+@users.route('/users/complaints/get', methods=['GET'])
 def track_complaints():
-    current_app.logger.info('GET /users/complaints route')
+    current_app.logger.info('GET /users/complaints/get route')
     cursor = db.get_db().cursor()
 
     get_query = '''

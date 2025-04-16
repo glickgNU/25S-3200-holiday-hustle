@@ -19,7 +19,7 @@ st.header('View User Complaints Page')
 # Add a button to fetch complaints
 if st.button("Fetch Complaints"):
 
-    response = requests.get('http://api:4000/fda/complaints')
+    response = requests.get('http://api:4000/u/users/complaints/get')
 
     # display the complaints
     if response.status_code == 200:

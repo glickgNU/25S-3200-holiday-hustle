@@ -17,7 +17,7 @@ SideBarLinks()
 st.header('Access Interface Modification Tools Page')
 
 if st.button("Get Available Interface Tools"):
-    response = requests.get('http://api:4000/fda/interface_tools')
+    response = requests.get('http://api:4000/fda/visuals')
 
     if response.status_code == 200:
         st.write('')

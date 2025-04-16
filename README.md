@@ -16,12 +16,12 @@ Holiday Hustle is an app designed to allow for users who many not have prior eve
 - A distribution of Python running on your laptop. The distro supported by the course is Anaconda or Miniconda.
 
 ### Secret Password (.env file)
-SECRET_KEY=someCrazyS3cR3T!Key.!
-DB_USER=root
-DB_HOST=db
-DB_PORT=3306
-DB_NAME=holidayHustle
-MYSQL_ROOT_PASSWORD=abc123
+- SECRET_KEY=someCrazyS3cR3T!Key.! 
+- DB_USER=root
+- DB_HOST=db
+- DB_PORT=3306
+- DB_NAME=holidayHustle
+- MYSQL_ROOT_PASSWORD=abc123
 
 ## Current Project Components
 

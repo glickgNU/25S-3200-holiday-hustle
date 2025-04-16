@@ -1,7 +1,6 @@
 from flask import Flask
 
 from backend.db_connection import db
-from backend.products.products_routes import products
 from backend.simple.simple_routes import simple_routes
 from backend.users.users import users
 from backend.fda.fda import employees

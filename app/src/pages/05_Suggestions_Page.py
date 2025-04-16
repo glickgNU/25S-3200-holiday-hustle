@@ -15,12 +15,13 @@ SideBarLinks()
 # set the header of the page
 st.header('Suggestions Page')
 
+selected_options = []
 
 
 # inputs
 #
 
-selected_options = []
+
 # Create a button
 if st.button("Allergies"):
 
@@ -36,7 +37,7 @@ if st.button("Allergies"):
 if st.button("Select a price range"):
     price = st.text_input("Choose price:", "...")
     results = requests.get(f'http://api:4000/f/fda/{price}').json()
-    
+
 
 
 

@@ -21,7 +21,7 @@ sub_type = st.radio('Choose a pro or free subscription: ', ("Free", "Pro"))
 if st.button("Subscription change complete", type='primary',
              use_container_width=True):
              st.write("Your Subscription type is: ", sub_type)
-             results = requests.get(f'http://api:4000/u/users/subscription/{Acc_ID}/{sub_type}').json()
+             results = requests.get('http://api:4000/u/users/subscription').json()
              st.dataframe(results)
 
-  
+  # /{Acc_ID}/{sub_type}      -- test

@@ -37,9 +37,6 @@ def casualUser():
 def subscriptionPage():
     st.sidebar.page_link("pages/04_Subscription_Page.py", label="Subscription Page", icon="💵")
 
-def suggestionsPage():
-    st.sidebar.page_link("pages/05_Suggestions_Page.py", label="Suggestions Page", icon="💵")
-
 def suggestionsHistoryPage():
     st.sidebar.page_link("pages/06_Suggestions_History_Page.py", label="Suggestions History Page", icon="💵")
 

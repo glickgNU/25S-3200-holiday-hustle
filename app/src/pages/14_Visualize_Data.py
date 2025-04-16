@@ -13,11 +13,11 @@ import requests
 # Call the SideBarLinks from the nav module in the modules directory
 SideBarLinks()
 
-st.header("📈 Visualize Data")
+st.header(" Visualize Data")
 
 st.markdown("Welcome to your data insights dashboard, Carlos. Explore trends and behavior visually.")
 
-# 🎉 Carlos-1: Holiday Spending
+# Carlos-1: Holiday Spending
 st.subheader("Holiday Spending vs. Clicks")
 try:
     response = requests.get("http://api:4000/fda/holiday")
@@ -29,7 +29,7 @@ try:
 except Exception as e:
     st.error(f"Failed to load holiday data: {e}")
 
-# 📅 Carlos-4: Monthly Planning Trends
+#  Carlos-4: Monthly Planning Trends
 st.subheader("Monthly Suggestion Trends")
 try:
     response = requests.get("http://api:4000/fda/personalized_suggestions/presets")
@@ -41,7 +41,7 @@ try:
 except Exception as e:
     st.error(f"Failed to load monthly trends: {e}")
 
-# 👥 Carlos-6: Spending by Host Type
+# Carlos-6: Spending by Host Type
 st.subheader("Spending by Host Type")
 try:
     response = requests.get("http://api:4000/fda/analysis")

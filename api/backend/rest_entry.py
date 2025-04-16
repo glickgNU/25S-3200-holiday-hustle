@@ -4,7 +4,7 @@ from backend.db_connection import db
 from backend.simple.simple_routes import simple_routes
 from backend.users.users import users
 from backend.fda.fda import employees
-from backend.fda_personalised_suggestions import fda_suggestions
+from backend.fda.personal_suggestions import fda_suggestions
 from backend.inputs.inputs import inputs
 
 import os

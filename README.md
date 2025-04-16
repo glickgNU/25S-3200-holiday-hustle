@@ -3,7 +3,7 @@
 ## About
 Holiday Hustle is an app designed to allow for users who many not have prior event planning experience to plan for holiday events.
 
-# Created by
+### Created by
 - Sophia S
 - Gil G
 - Ugochi O
@@ -15,7 +15,7 @@ Holiday Hustle is an app designed to allow for users who many not have prior eve
 - VSCode with the Python Plugin
 - A distribution of Python running on your laptop. The distro supported by the course is Anaconda or Miniconda.
 
-# Secret Password (.env file)
+### Secret Password (.env file)
 SECRET_KEY=someCrazyS3cR3T!Key.!
 DB_USER=root
 DB_HOST=db

@@ -65,4 +65,9 @@ if st.button("These are suggestions based on your preferences: ", type='primary'
              st.dataframe(results)
 
 
+# Jason 1:
+if st.button("Click here to view the input you made: ", type='primary',
+             use_container_width=True):
+    results = requests.get(f'http://api:4000/i/inputs/inputs/{user_input}/{selected_options}/{list_of_associated_suggestions}').json()
+    st.write(results)
 

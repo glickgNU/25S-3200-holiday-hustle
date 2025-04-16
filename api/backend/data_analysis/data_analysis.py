@@ -8,7 +8,7 @@ from backend.ml_models.model01 import predict
 
 # Create a new Blueprint object, which is a collection of 
 # routes.
- data_analysis = Blueprint('analysis', __name__)
+data_analysis = Blueprint('analysis', __name__)
 
 @data_analysis.route('/fda/analysis', methods=['GET'])
 def get_host_type_spending():

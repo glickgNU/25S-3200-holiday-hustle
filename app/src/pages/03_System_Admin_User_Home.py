@@ -17,7 +17,7 @@ st.write('### What would you like to do today?')
 if st.button('View User Activity Page', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/11_View_User_Activity.py')
+  st.switch_page('pages/11_View_User_Activity_Page.py')
 
 if st.button('View User Complaints Page', 
              type='primary',

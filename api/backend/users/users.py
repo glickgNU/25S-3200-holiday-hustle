@@ -83,9 +83,9 @@ def remove_users():
     response.mimetype = 'application/json'
     return response
 
-@users.route('/users/subscription', methods=['POST'])
+@users.route('/users/subscription/post', methods=['POST'])
 def add_monetization():
-    current_app.logger.info('POST /users/subscription route')
+    current_app.logger.info('POST /users/subscription/post route')
     subscription_info = request.json
     pro_subscription = subscription_info['pro']
     free_subscription = subscription_info['free']

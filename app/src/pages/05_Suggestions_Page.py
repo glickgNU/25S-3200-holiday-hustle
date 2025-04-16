@@ -32,17 +32,24 @@ if st.button("Allergies"):
     if selected_options:
         st.write("You selected:", selected_options)
 
+# Price Range (Jason 4)
+if st.button("Select a price range"):
+    price = st.text_input("Choose price:", "...")
+    results = requests.get(f'http://api:4000/f/fda/{price}').json()
+    
 
-# Create a text input box
+
+
+
+# Group Size
 user_input = st.text_input("Group size:", "Type in your group size")
 
-# Display the input value
 if user_input:
     st.write("You entered:", user_input)
 else:
     st.write("What's your group size?")
 
-# Create a button
+# Create an Audience
 if st.button("Audience"):
 
     selected_options = st.multiselect(

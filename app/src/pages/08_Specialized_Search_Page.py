@@ -46,8 +46,15 @@ if st.button("Preview Most Food, Decorations, Activities" ,type='primary',
         preview_what = "Most_Food_Decorations_Activities"
         
 
-# Press to send the complaint
+# Press to send the complaint (Jason 6)
 if st.button("Get most popular items, suggestions, food, decorations, and activities" ,type='primary',
              use_container_width=True):
              results = requests.get(f'http://api:4000/f/fda/personal_suggestions/{preview_what}').json()
+             st.dataframe(results)
+
+
+# See most popular personalized suggestions (Jason 5)
+if st.button("Find most popular suggestions" ,type='primary',
+             use_container_width=True):
+             results = requests.get(f'http://api:4000/f/fda/personal_suggestions/').json()
              st.dataframe(results)

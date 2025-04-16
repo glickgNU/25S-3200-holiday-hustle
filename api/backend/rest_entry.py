@@ -4,7 +4,7 @@ from backend.db_connection import db
 from backend.simple.simple_routes import simple_routes
 from backend.users.users import users
 from backend.fda.fda import employees
-from backend.fda.personal_suggestions import fda_suggestions
+from backend.fda.personal_suggestions import personal_suggestions
 from backend.inputs.inputs import inputs
 
 import os
@@ -47,7 +47,7 @@ def create_app():
     app.register_blueprint(employees,   url_prefix='/f')
     app.register_blueprint(users,   url_prefix='/u')
     app.register_blueprint(inputs,  url_prefix='/i')
-    app.register_blueprint(fda_suggestions,  url_prefix='/s')
+    app.register_blueprint(personal_suggestions,  url_prefix='/s')
 
     # Don't forget to return the app object
     return app

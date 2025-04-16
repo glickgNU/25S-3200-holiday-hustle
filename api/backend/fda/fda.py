@@ -61,7 +61,7 @@ def get_popular_fda():
 
 @employees.route('/fda/visuals', methods=['PUT'])
 def update_interface():
-    current_app.logger.info('PUT /app/visuals route')
+    current_app.logger.info('PUT /fda/visuals route')
     visual_info = request.json
     visual_id = visual_info['id']
     color = visual_info['color']
